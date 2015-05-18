@@ -58,7 +58,7 @@ class Sub implements Crypter {
             return codedMessage;
 
         } catch (IllegalKeyException e) {
-            System.out.println("falscher Key!");
+            System.out.println(e.getMessage());
         }
     }
 
