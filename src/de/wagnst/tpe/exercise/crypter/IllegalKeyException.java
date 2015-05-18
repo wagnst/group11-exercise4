@@ -1,5 +1,5 @@
 package de.wagnst.tpe.exercise.crypter;
 
-class IllegalKeyException extends Exception {
+public class IllegalKeyException extends Exception {
 
 }

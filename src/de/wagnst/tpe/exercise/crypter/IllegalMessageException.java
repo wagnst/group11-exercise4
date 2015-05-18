@@ -1,5 +1,5 @@
 package de.wagnst.tpe.exercise.crypter;
 
-class IllegalMessageException extends Exception {
+public class IllegalMessageException extends Exception {
 
 }
