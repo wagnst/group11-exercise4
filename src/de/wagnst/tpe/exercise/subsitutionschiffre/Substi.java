@@ -2,7 +2,7 @@ package de.wagnst.tpe.exercise.subsitutionschiffre;
 
 import de.wagnst.tpe.exercise.crypter.*;
 
-class Sub implements Crypter {
+public class Substi implements Crypter {
 
     private String cleartext = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private String key;
@@ -37,7 +37,7 @@ class Sub implements Crypter {
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
 
-        /* TODO key does not match with encodeprocedure */
+        /* TODO catch the spaces! */
 
         String codedMessage = "";
 

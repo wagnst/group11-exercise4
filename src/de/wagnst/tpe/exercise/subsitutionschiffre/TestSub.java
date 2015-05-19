@@ -12,7 +12,7 @@ public class TestSub {
 
     /* TODO key mit doppelten Zeichen; */
 
-    Crypter test = new Sub();
+    Crypter test = new Substi();
 
     /* encode */
     @Test
