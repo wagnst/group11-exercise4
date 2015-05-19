@@ -1,6 +1,7 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
 import de.wagnst.tpe.exercise.crypter.*;
+import de.wagnst.tpe.exercise.subsitutionschiffre.KeyCorrectness;
 
 public class Substi implements Crypter {
 
@@ -39,33 +40,8 @@ public class Substi implements Crypter {
          * did not use
          */
 
-        /* correct length of the key */
-        if (key.length() != 26) {
-            throw new IllegalKeyException(
-                    "please insert a key within 26 letters");
-        }
-        /* checks whole key for illegal literals */
-        for (int i = 0; i < key.length(); i++) {
-            if (!cleartext.contains((Character.toString(key.charAt(i))))) {
-                throw new IllegalKeyException(
-                        "please Only use capital letters for your key");
-            }
-        }
-
-        /* searching for duplicate letters, includes spaces */
-        for (int i = 0; i < key.length(); i++) {
-            int count = 0;
-            for (int j = 0; j < key.length(); j++) {
-                if (key.charAt(i) == key.charAt(j)) {
-                    count++;
-                    if (count > 1) {
-                        throw new IllegalKeyException(
-                                "duplicates are not allowed at key");
-                    }
-
-                }
-            }
-        }
+        if (KeyCorrectness.keyIsCorrect(key, cleartext))
+            ;
 
         String codedMessage = "";
         /* select the letter to encode */
@@ -139,5 +115,4 @@ public class Substi implements Crypter {
 
     }
 
-    
 }
