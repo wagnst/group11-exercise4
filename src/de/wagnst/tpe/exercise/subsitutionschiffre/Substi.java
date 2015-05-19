@@ -5,20 +5,9 @@ import de.wagnst.tpe.exercise.crypter.*;
 public class Substi implements Crypter {
 
     private String cleartext = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private String key;
 
     public String getCleartext() {
         return cleartext;
-    }
-
-    public void setKey(String key) {
-
-        /* key contains exactly 26 letters */
-        if (key.length() == 26) {
-            this.key = key;
-        }
-        // TODO implement the case if the given key contains less than 26
-        // letters
     }
 
     /**
@@ -37,7 +26,9 @@ public class Substi implements Crypter {
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
 
-        /* TODO catch the spaces! */
+        /* TODO method for each Exception check forXY */
+        /* TODO catch the spaces at message input */
+        /* TODO catch illegal literals at message input */
 
         String codedMessage = "";
 
@@ -53,7 +44,7 @@ public class Substi implements Crypter {
             }
         }
 
-        /* searching for duplicate letters */
+        /* searching for duplicate letters, includes spaces */
         for (int i = 0; i < key.length(); i++) {
             int count = 0;
             for (int j = 0; j < key.length(); j++) {
