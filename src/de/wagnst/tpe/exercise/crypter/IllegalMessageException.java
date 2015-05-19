@@ -13,7 +13,7 @@ public class IllegalMessageException extends Exception {
         this.userMessage = userMessage;
     }
 
-    public String getKey() {
+    public String getMessage() {
         return userMessage;
     }
 

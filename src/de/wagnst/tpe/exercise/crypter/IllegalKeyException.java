@@ -1,19 +1,19 @@
 package de.wagnst.tpe.exercise.crypter;
 
 public class IllegalKeyException extends Exception {
-    private String key;
+    private String message;
 
-    public IllegalKeyException(){
-        
-    }
-    
-    public IllegalKeyException(String message, String key) {
-        super(message);
-        this.key = key;
+    public IllegalKeyException() {
+
     }
 
-    public String getKey() {
-        return key;
+    public IllegalKeyException(String message) {
+
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
 }
