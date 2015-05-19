@@ -25,13 +25,21 @@ public class Substi implements Crypter {
     @Override
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
-
+        /* @general */
         /* TODO method for each Exception check forXY */
+
+        /* @message */
         /* TODO catch the spaces at message input */
         /* TODO catch illegal literals at message input */
+        /*
+         * @key
+         */
+        /*
+         * TODO key with less than 26 letters allowed; fill it with letters you
+         * did not use
+         */
 
-        String codedMessage = "";
-
+        /* correct length of the key */
         if (key.length() != 26) {
             throw new IllegalKeyException(
                     "please insert a key within 26 letters");
@@ -59,6 +67,7 @@ public class Substi implements Crypter {
             }
         }
 
+        String codedMessage = "";
         /* select the letter to encode */
         int pointer = 0;
         for (int i = 0; i < message.length(); i++) {
@@ -129,4 +138,6 @@ public class Substi implements Crypter {
         return decodedMessage;
 
     }
+
+    
 }
