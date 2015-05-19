@@ -14,28 +14,28 @@ public class Hauptansicht extends JFrame {
     public Hauptansicht() {
         super("Enigma");
 
-        // Input
+        /* Input */
         JPanel eingabePanel = new JPanel();
         eingabePanel.setLayout(new GridLayout(2, 2));
         JLabel messageLabel = new JLabel("Message");
         eingabePanel.add(messageLabel);
         eingabePanel.add(messageField);
 
-        // Key
+        /* Key */
         JPanel keyPanel = new JPanel();
         keyPanel.setLayout(new GridLayout(2, 2));
         JLabel keyLabel = new JLabel("Key");
         keyPanel.add(keyLabel);
         keyPanel.add(keyField);
 
-        // Encode
+        /* Encode */
         JPanel encodePanel = new JPanel();
         encodePanel.setLayout(new GridLayout(2, 2));
         JLabel encodeLabel = new JLabel("Encoded Message");
         encodePanel.add(encodeLabel);
         encodePanel.add(codedField);
 
-        // Buttons
+        /* Buttons */
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
         JButton encodeButton = new JButton("Substi Encode");
@@ -45,13 +45,13 @@ public class Hauptansicht extends JFrame {
         JButton cancleButton = new JButton("cancle");
         buttonPanel.add(cancleButton);
 
-        // Center
+        /* Center */
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout());
         centerPanel.add(keyPanel, BorderLayout.NORTH);
         centerPanel.add(encodePanel, BorderLayout.CENTER);
 
-        // Master
+        /* Master */
         JPanel masterPanel = new JPanel();
         masterPanel.setLayout(new BorderLayout());
         masterPanel.add(eingabePanel, BorderLayout.NORTH);
@@ -60,10 +60,11 @@ public class Hauptansicht extends JFrame {
 
         this.add(masterPanel);
 
-        encodeButton.addActionListener(new SubstiEncoderActionListener(messageField,
-                keyField, codedField));
-        decodeButton.addActionListener(new SubstiDecoderActionListener(messageField,
-                keyField, codedField));
+        /* ActionListener for each encode/decode method */
+        encodeButton.addActionListener(new SubstiEncoderActionListener(
+                messageField, keyField, codedField));
+        decodeButton.addActionListener(new SubstiDecoderActionListener(
+                messageField, keyField, codedField));
 
         cancleButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
