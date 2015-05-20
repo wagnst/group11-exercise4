@@ -2,22 +2,25 @@ package de.wagnst.tpe.exercise.crypter;
 
 public class IllegalMessageException extends Exception {
 
-    /**TODO warum das? 
+    /**
+     * TODO warum das?
      */
     private static final long serialVersionUID = 1L;
-    private String userMessage;
+    
+    private String message;
+    private String name = "Message";
 
     public IllegalMessageException() {
 
     }
 
-    public IllegalMessageException(String message, String userMessage) {
-        super(message);
-        this.userMessage = userMessage;
+    public IllegalMessageException(String message) {
+        this.message = message;
     }
 
+    @Override
     public String getMessage() {
-        return userMessage;
+        return message + " at "+name;
     }
 
 }
