@@ -4,16 +4,16 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Fenster öffnen und darstellen
+        // opens window
         JFrame CryptoFenster = new Hauptansicht();
 
-        // Fensterhöhe und -breite in Pixeln
+        // window size (h/w)
         CryptoFenster.setSize(500, 300);
 
-        // Fenster in Bildschirmmitte
+        // window position center
         CryptoFenster.setLocationRelativeTo(null);
 
-        // Sichtbar machen
+        // set it visible
         CryptoFenster.setVisible(true);
 
     }

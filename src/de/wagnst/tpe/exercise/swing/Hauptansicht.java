@@ -48,9 +48,9 @@ public class Hauptansicht extends JFrame {
         /* Buttons */
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
-        JButton encodeButton = new JButton("Substi Encode");
+        JButton encodeButton = new JButton("encode");
         buttonPanel.add(encodeButton);
-        JButton decodeButton = new JButton("Substi Decode");
+        JButton decodeButton = new JButton("decode");
         buttonPanel.add(decodeButton);
         JButton cancleButton = new JButton("cancle");
         buttonPanel.add(cancleButton);
