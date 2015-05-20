@@ -27,9 +27,16 @@ public class KeyCorrectness {
         return true;
     }
 
+    /*TODO shell we do this or can we say: we are only interested in keys within 26 letters?!*/
     private static void checkLength(String key, String cleartext)
             throws IllegalKeyException {
 
+        if (key.length() != 26) {
+            throw new IllegalKeyException(
+                    "please insert a key within 26 letters");
+        }
+        
+        /*
         if (key.length() == 26) {
             return;
         } else if (key.length() > 26) {
@@ -45,7 +52,7 @@ public class KeyCorrectness {
 
             /* "fill" at next position of the key */
 
-        }
+       // }
     }
 
     private static void legalLeterals(String key, String cleartext)

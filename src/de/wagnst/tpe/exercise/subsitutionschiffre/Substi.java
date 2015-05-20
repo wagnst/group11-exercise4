@@ -27,7 +27,7 @@ public class Substi implements Crypter {
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
         /* @general */
-        /* TODO method for each Exception check forXY */
+        /* TODO method for each Exception check forXY, own class? */
 
         /* @message */
         /* TODO catch the spaces at message input */
@@ -40,8 +40,37 @@ public class Substi implements Crypter {
          * did not use
          */
 
-        if (KeyCorrectness.keyIsCorrect(key, cleartext))
-            ;
+        /* key correctness */
+        /* length of key correct? */
+        if (key.length() != 26) {
+            throw new IllegalKeyException(
+                    "please insert a key within 26 letters");
+        }
+
+        /* all letters correct for the key? */
+        for (int i = 0; i < key.length(); i++) {
+            if (!cleartext.contains((Character.toString(key.charAt(i))))) {
+                throw new IllegalKeyException(
+                        "please Only use capital letters for your key");
+            }
+        }
+
+        /* does key contain duplicates? */
+        for (int i = 0; i < key.length(); i++) {
+            int count = 0;
+            for (int j = 0; j < key.length(); j++) {
+                if (key.charAt(i) == key.charAt(j)) {
+                    count++;
+                    if (count > 1) {
+                        throw new IllegalKeyException(
+                                "duplicates are not allowed at key");
+                    }
+
+                }
+            }
+        }
+
+        /* message format correct? */
 
         String codedMessage = "";
         /* select the letter to encode */
@@ -52,16 +81,13 @@ public class Substi implements Crypter {
             while (message.charAt(pointer) != (cleartext.charAt(j))) {
                 j++;
 
-                try {
-                    if (j == 26) {
-                        /* literal not at cleartext */
-                        throw new IllegalMessageException(
-                                "please ONLY use capital letters for your message",
-                                message);
-                    }
-                } catch (IllegalMessageException e) {
-                    System.out.println(e.getMessage());
+                if (j == 26) {
+                    /* literal not at cleartext */
+                    throw new IllegalMessageException(
+                            "please ONLY use capital letters for your message",
+                            message);
                 }
+
             }
             /* we found the letter in cleartext at position(j) */
             codedMessage += key.charAt(j);
