@@ -7,37 +7,34 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class TestSub {
-    // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+public class TestEncode {
 
     private String key = "DEFGHIJKLMNOPQRSTUVWXYZABC";
-
-    /* TODO key mit doppelten Zeichen; */
 
     Crypter test = new Substi();
 
     /* encode */
     @Test
-    public void testVerschluessln() throws IllegalKeyException,
-            IllegalMessageException {
+    public void encode() throws IllegalKeyException, IllegalMessageException {
 
         assertEquals("DEFG", test.verschluesseln(key, "ABCD"));
         assertEquals("BCD", test.verschluesseln(key, "YZA"));
         assertEquals("CGP", test.verschluesseln(key, "ZDM"));
+        assertEquals("", test.entschluesseln(key, ""));
         assertEquals("DEFGHIJKLMNOPQRSTUVWXYZABC",
                 test.verschluesseln(key, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
-
     }
+
+    /* KEY */
 
     @Test
     public void removeSpacesAndSmallLetters() throws IllegalKeyException,
-    IllegalMessageException {
-        
+            IllegalMessageException {
+
         assertEquals("DEFG", test.verschluesseln(key, "AB CD"));
         assertEquals("BCD", test.verschluesseln(key, "yza"));
     }
-    
-    
+
     /*
      * KeyExceptions too small/large key
      */
@@ -103,15 +100,26 @@ public class TestSub {
         test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZACC", "HALLO");
     }
 
-    /* MessageExceptions */
+    /* MESSAGE */
 
-    /* decode */
     @Test
-    public void testEntschluesseln() throws IllegalKeyException,
+    public void EncodeSmallLettersAndSpaces() throws IllegalKeyException,
             IllegalMessageException {
+        assertEquals("KDOORPUVPLWV", test.verschluesseln(key, "Hallo Mr Smits"));
+    }
 
-        assertEquals("ABCD", test.entschluesseln(key, "DEFG"));
-        assertEquals("ZZ BB", test.entschluesseln(key, "CC EE"));
+    /* empty message */
+    @Test(expected = IllegalMessageException.class)
+    public void IllegalMessageException1() throws IllegalKeyException,
+            IllegalMessageException {
+        assertEquals("ABC", test.verschluesseln(key, ""));
+    }
+
+    /* wrong literal */
+    @Test(expected = IllegalMessageException.class)
+    public void IllegalMessageException2() throws IllegalKeyException,
+            IllegalMessageException {
+        assertEquals("ABC", test.verschluesseln(key, "!"));
     }
 
 }

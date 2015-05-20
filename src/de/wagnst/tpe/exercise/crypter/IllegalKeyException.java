@@ -4,7 +4,7 @@ public class IllegalKeyException extends Exception {
     /* TODO warum final long variable? */
     private static final long serialVersionUID = 1L;
     private String message;
-    private String name;
+    private String name ="key";
 
     public IllegalKeyException() {
 
