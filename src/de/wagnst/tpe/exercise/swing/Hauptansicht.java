@@ -7,12 +7,21 @@ import javax.swing.*;
 public class Hauptansicht extends JFrame {
     private static final long serialVersionUID = 1L;
 
-    private JTextField messageField = new JTextField();
-    private JTextField keyField = new JTextField();
-    private JTextField codedField = new JTextField();
+    private JTextArea messageField = new JTextArea();
+    private JTextArea keyField = new JTextArea();
+    private JTextArea codedField = new JTextArea();
 
     public Hauptansicht() {
         super("Enigma");
+
+        messageField.setLineWrap(true);
+        messageField.setWrapStyleWord(true);
+        
+        keyField.setLineWrap(true);
+        keyField.setWrapStyleWord(true);
+        
+        codedField.setLineWrap(true);
+        codedField.setWrapStyleWord(true);
 
         /* Input */
         JPanel eingabePanel = new JPanel();

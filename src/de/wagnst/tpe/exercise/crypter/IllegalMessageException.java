@@ -6,7 +6,7 @@ public class IllegalMessageException extends Exception {
      * TODO warum das?
      */
     private static final long serialVersionUID = 1L;
-    
+
     private String message;
     private String name = "Message";
 
@@ -20,7 +20,7 @@ public class IllegalMessageException extends Exception {
 
     @Override
     public String getMessage() {
-        return message + " at "+name;
+        return message + " @ " + name;
     }
 
 }

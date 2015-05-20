@@ -9,12 +9,12 @@ import javax.swing.*;
 
 public class SubstiEncoderActionListener implements ActionListener {
 
-    private JTextField messageField = new JTextField();
-    private JTextField keyField = new JTextField();
-    private JTextField encodeField = new JTextField();
+    private JTextArea messageField = new JTextArea();
+    private JTextArea keyField = new JTextArea();
+    private JTextArea encodeField = new JTextArea();
 
-    public SubstiEncoderActionListener(JTextField messageField, JTextField keyField,
-            JTextField encodeField) {
+    public SubstiEncoderActionListener(JTextArea messageField, JTextArea keyField,
+            JTextArea encodeField) {
         this.messageField = messageField;
         this.keyField = keyField;
         this.encodeField = encodeField;
