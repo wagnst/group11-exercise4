@@ -1,7 +1,6 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
 import de.wagnst.tpe.exercise.crypter.*;
-import de.wagnst.tpe.exercise.subsitutionschiffre.KeyCorrectness;
 
 public class Substi implements Crypter {
 
@@ -10,6 +9,9 @@ public class Substi implements Crypter {
     public String getCleartext() {
         return cleartext;
     }
+
+    /* to prevent system performance set max. letters */
+    private int howManyLetters = 10000;
 
     /**
      * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
@@ -43,15 +45,13 @@ public class Substi implements Crypter {
         /* key correctness */
         /* length of key correct? */
         if (key.length() != 26) {
-            throw new IllegalKeyException(
-                    "please insert a key within 26 letters");
+            throw new IllegalKeyException("please insert within 26 letters");
         }
 
         /* all letters correct for the key? */
         for (int i = 0; i < key.length(); i++) {
             if (!cleartext.contains((Character.toString(key.charAt(i))))) {
-                throw new IllegalKeyException(
-                        "please Only use capital letters for your key");
+                throw new IllegalKeyException("please Only use capital letters");
             }
         }
 
@@ -63,7 +63,7 @@ public class Substi implements Crypter {
                     count++;
                     if (count > 1) {
                         throw new IllegalKeyException(
-                                "duplicates are not allowed at key");
+                                "duplicates are not allowed");
                     }
 
                 }
@@ -78,6 +78,14 @@ public class Substi implements Crypter {
         /* message contains spaces */
         message = message.replaceAll(" ", "");
 
+        /*TODO if no message and try encode/decode throw exception*/
+        if (message.equals(null)) {
+            throw new IllegalMessageException("please insert anything");
+        } else if (message.length() > howManyLetters) {
+            throw new IllegalMessageException("please not more than: "
+                    + howManyLetters + " letters");
+        }
+
         String codedMessage = "";
         /* select the letter to encode */
         int pointer = 0;
@@ -90,7 +98,7 @@ public class Substi implements Crypter {
                 if (j == 26) {
                     /* literal not at cleartext */
                     throw new IllegalMessageException(
-                            "please only use letters");
+                            "please only use latin letters");
                 }
 
             }
