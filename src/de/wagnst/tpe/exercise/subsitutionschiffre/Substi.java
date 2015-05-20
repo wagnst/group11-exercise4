@@ -152,7 +152,8 @@ public class Substi implements Crypter {
 
         /* prevent that message contains small letters */
         cypherText = cypherText.toUpperCase();
-        /* message contains spaces */
+
+        /* TODO message contains spaces, may we want this? */
         cypherText = cypherText.replaceAll(" ", "");
 
         String decodedMessage = "";
