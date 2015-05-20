@@ -36,8 +36,8 @@ public class Substi implements Crypter {
          * @key
          */
         /*
-         * TODO key with less than 26 letters allowed; fill it with letters you
-         * did not use
+         * TODO key with less than 26 letters allowed?? want this
+         * implementation?
          */
 
         /* key correctness */
@@ -70,7 +70,13 @@ public class Substi implements Crypter {
             }
         }
 
-        /* message format correct? */
+        /* TODO warum muss ich den "neuen" Wert wieder zuweisen? */
+        /* formatting message */
+        /* message contains small letters */
+        message = message.toUpperCase();
+
+        /* message contains spaces */
+        message = message.replaceAll(" ", "");
 
         String codedMessage = "";
         /* select the letter to encode */
@@ -84,8 +90,7 @@ public class Substi implements Crypter {
                 if (j == 26) {
                     /* literal not at cleartext */
                     throw new IllegalMessageException(
-                            "please ONLY use capital letters for your message",
-                            message);
+                            "please only use letters");
                 }
 
             }
