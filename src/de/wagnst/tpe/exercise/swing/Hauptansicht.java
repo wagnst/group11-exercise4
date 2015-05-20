@@ -8,7 +8,7 @@ public class Hauptansicht extends JFrame {
     private static final long serialVersionUID = 1L;
 
     private JTextArea messageField = new JTextArea();
-    private JTextArea keyField = new JTextArea();
+    private JTextArea keyField = new JTextArea("DEFGHIJKLMNOPQRSTUVWXYZABC");
     private JTextArea codedField = new JTextArea();
 
     public Hauptansicht() {
