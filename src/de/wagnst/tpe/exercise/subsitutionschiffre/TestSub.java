@@ -27,6 +27,15 @@ public class TestSub {
 
     }
 
+    @Test
+    public void removeSpacesAndSmallLetters() throws IllegalKeyException,
+    IllegalMessageException {
+        
+        assertEquals("DEFG", test.verschluesseln(key, "AB CD"));
+        assertEquals("BCD", test.verschluesseln(key, "yza"));
+    }
+    
+    
     /*
      * KeyExceptions too small/large key
      */
