@@ -1,6 +1,8 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
-import de.wagnst.tpe.exercise.crypter.*;
+import de.wagnst.tpe.exercise.crypter.Crypter;
+import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
+import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
 
 public class Substi implements Crypter {
 
@@ -16,14 +18,13 @@ public class Substi implements Crypter {
     /**
      * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
      *
-     * @param key Schlüssel, der verwendet werden soll.
+     * @param key     Schlüssel, der verwendet werden soll.
      * @param message Nachricht, die Verschlüsselt werden soll.
-     *
      * @return verschlüsselter Text.
-     * @throws IllegalKeyException Wird geworfen, wenn der Schlüssel nicht zum
-     *         Verschlüsselungsverfahren passt
+     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht zum
+     *                                 Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *         unerlaubte Zeichen enthält.
+     *                                 unerlaubte Zeichen enthält.
      */
     @Override
     public String verschluesseln(String key, String message)
@@ -114,14 +115,13 @@ public class Substi implements Crypter {
     /**
      * Entschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
      *
-     * @param key Schlüssel, der verwendet werden soll.
+     * @param key        Schlüssel, der verwendet werden soll.
      * @param cypherText Nachricht, die entschlüsselt werden soll.
-     *
      * @return entschlüsselter Text.
-     * @throws IllegalKeyException Wird geworfen, wenn der Schlüssel nicht zum
-     *         Verschlüsselungsverfahren passt
+     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht zum
+     *                                 Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *         unerlaubte Zeichen enthält.
+     *                                 unerlaubte Zeichen enthält.
      */
     @Override
     public String entschluesseln(String key, String cypherText) {

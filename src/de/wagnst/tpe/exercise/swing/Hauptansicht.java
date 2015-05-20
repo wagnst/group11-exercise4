@@ -1,8 +1,9 @@
 package de.wagnst.tpe.exercise.swing;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Hauptansicht extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -16,10 +17,10 @@ public class Hauptansicht extends JFrame {
 
         messageField.setLineWrap(true);
         messageField.setWrapStyleWord(true);
-        
+
         keyField.setLineWrap(true);
         keyField.setWrapStyleWord(true);
-        
+
         codedField.setLineWrap(true);
         codedField.setWrapStyleWord(true);
 

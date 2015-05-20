@@ -1,9 +1,11 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
+import de.wagnst.tpe.exercise.crypter.Crypter;
+import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
+import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import de.wagnst.tpe.exercise.crypter.*;
 
 public class TestSub {
     // ABCDEFGHIJKLMNOPQRSTUVWXYZ

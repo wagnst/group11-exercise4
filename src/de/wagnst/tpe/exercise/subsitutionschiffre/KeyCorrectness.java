@@ -1,6 +1,6 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
-import de.wagnst.tpe.exercise.crypter.*;
+import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
 
 /**
  * KeyCorrectness checks a key if it is in right format for Substi encoding
@@ -11,11 +11,11 @@ public class KeyCorrectness {
     /**
      * checks if the key is at right format: no duplicates , 26 letters, no
      * special literal
-     * 
-     * @throws IllegalKeyException is thrown if key is in wrong format
-     * @param key which is proved
+     *
+     * @param key       which is proved
      * @param cleartext which is used to do encoding
      * @return returns true if key is legal, else false
+     * @throws IllegalKeyException is thrown if key is in wrong format
      */
     public static boolean keyIsCorrect(String key, String cleartext)
             throws IllegalKeyException {
@@ -52,7 +52,7 @@ public class KeyCorrectness {
 
             /* "fill" at next position of the key */
 
-       // }
+        // }
     }
 
     private static void legalLeterals(String key, String cleartext)
