@@ -20,4 +20,16 @@ public enum CrypterVerfahren {
         this.minKeyLength = minKeyLength;
         this.maxKeyLength = maxKeyLength;
     }
+
+    public String getAlphabet() {
+        return this.alphabet;
+    }
+
+    public int getMinKeyLength() {
+        return this.minKeyLength;
+    }
+
+    public int getMaxKeyLength() {
+        return this.maxKeyLength;
+    }
 }
