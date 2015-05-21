@@ -18,7 +18,7 @@ public class CrypterXOR implements Crypter {
     @Override
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
-
+        return null;
     }
 
     /**
@@ -27,6 +27,6 @@ public class CrypterXOR implements Crypter {
     @Override
     public String entschluesseln(String key, String cypherText)
             throws IllegalKeyException, IllegalMessageException {
-
+        return null;
     }
 }
