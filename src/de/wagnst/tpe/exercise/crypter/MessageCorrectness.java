@@ -6,6 +6,10 @@ public class MessageCorrectness {
 
     public static String checkAndFormat(CrypterVerfahren method, String message)
             throws IllegalMessageException {
+        if (message.length() == 0) {
+            throw new IllegalMessageException("atleast insert something");
+        }
+
         if (message.length() > maxLetter) {
             throw new IllegalMessageException("use less than " + maxLetter
                     + " letters");
@@ -14,6 +18,15 @@ public class MessageCorrectness {
         message = message.toUpperCase();
         message = message.replaceAll(" ", "");
 
-        /* TODO check for illegal literals at message */
+        for (int i = 0; i < message.length(); i++) {
+            if (!method.getAlphabet().contains(
+                    Character.toString(message.charAt(i)))) {
+                throw new IllegalMessageException(
+                        "some literals doesnt exist at " + method.getName()
+                                + "'s alpabeth");
+            }
+        }
+        return message;
     }
+
 }
