@@ -7,8 +7,10 @@ package de.wagnst.tpe.exercise.crypter;
  */
 
 public class IllegalCrypterException extends Exception {
+
+    private static final long serialVersionUID = 1L;
     private String message;
-    private String name ="crypter";
+    private String name = "crypter";
 
     public IllegalCrypterException() {
 
