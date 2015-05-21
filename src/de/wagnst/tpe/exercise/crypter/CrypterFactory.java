@@ -29,7 +29,6 @@ public class CrypterFactory {
                 return new CrypterXOR();
             default:
                 throw new IllegalCrypterException("no valid crypter method used");
-
         }
     }
 }
