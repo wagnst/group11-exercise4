@@ -12,7 +12,7 @@ public class TestDecode {
 
     private String key = "DEFGHIJKLMNOPQRSTUVWXYZABC";
 
-    Crypter test = new Substi();
+    Crypter test = new CrypterSubstitution();
 
     /* decode */
     @Test
