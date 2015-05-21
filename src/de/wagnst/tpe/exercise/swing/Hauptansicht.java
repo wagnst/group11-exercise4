@@ -6,11 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Hauptansicht extends JFrame {
-    private static final long serialVersionUID = 1L;
 
     private JTextArea messageField = new JTextArea();
     private JTextArea keyField = new JTextArea("DEFGHIJKLMNOPQRSTUVWXYZABC");
     private JTextArea codedField = new JTextArea();
+    private JComboBox crypterList = new JComboBox(
+            new String[] {"SUBSTITUTION", "CAESAR", "XOR"});
 
     public Hauptansicht() {
         super("Enigma");
@@ -45,15 +46,22 @@ public class Hauptansicht extends JFrame {
         encodePanel.add(encodeLabel);
         encodePanel.add(codedField);
 
-        /* Buttons */
+        /* Buttons and Combo*/
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
-        JButton encodeButton = new JButton("encode");
+
+        crypterList.setSelectedIndex(0);
+        buttonPanel.add(crypterList);
+
+        JButton encodeButton = new JButton("Encode");
         buttonPanel.add(encodeButton);
-        JButton decodeButton = new JButton("decode");
+
+        final JButton decodeButton = new JButton("Decode");
         buttonPanel.add(decodeButton);
-        JButton cancleButton = new JButton("cancle");
-        buttonPanel.add(cancleButton);
+
+        final JButton cancelButton = new JButton("Cancel");
+        buttonPanel.add(cancelButton);
 
         /* Center */
         JPanel centerPanel = new JPanel();
@@ -71,12 +79,13 @@ public class Hauptansicht extends JFrame {
         this.add(masterPanel);
 
         /* ActionListener for each encode/decode method */
-        encodeButton.addActionListener(new SubstiEncoderActionListener(
-                messageField, keyField, codedField));
-        decodeButton.addActionListener(new SubstiDecoderActionListener(
-                messageField, keyField, codedField));
+        encodeButton.addActionListener(new EncoderActionListener(
+                messageField, keyField, codedField, crypterList));
 
-        cancleButton.addActionListener(new ActionListener() {
+        decodeButton.addActionListener(new DecoderActionListener(
+                messageField, keyField, codedField, crypterList));
+
+        cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
