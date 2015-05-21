@@ -20,11 +20,14 @@ public class KeyCorrectness {
                 && key.length() <= method.getMaxKeyLength()) {
             return;
         } else
-            throw new IllegalKeyException(
-                    "key needs to be more than 0 literals");
+
+            /* TODO key min max fixen */
+            throw new IllegalKeyException("key needs to be between "
+                    + method.getMinKeyLength() + " and "
+                    + method.getMaxKeyLength() + " literals");
     }
 
-    public static boolean checkLiterals(CrypterVerfahren method, String key)
+    public static void checkLiterals(CrypterVerfahren method, String key)
             throws IllegalKeyException {
 
         for (int i = 0; i < key.length(); i++) {
@@ -33,11 +36,9 @@ public class KeyCorrectness {
                 throw new IllegalKeyException("please Only use capital letters");
             }
         }
-
-        return true;
     }
 
-    public static boolean checkDuplicates(CrypterVerfahren method, String key)
+    public static void checkDuplicates(CrypterVerfahren method, String key)
             throws IllegalKeyException {
         for (int i = 0; i < key.length(); i++) {
             int count = 0;
@@ -52,7 +53,6 @@ public class KeyCorrectness {
                 }
             }
         }
-        return true;
     }
 
 }

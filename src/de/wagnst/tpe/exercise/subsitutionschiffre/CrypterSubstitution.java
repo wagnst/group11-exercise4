@@ -36,17 +36,6 @@ public class CrypterSubstitution implements Crypter {
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        if (message.length() == 0 || message.length() > howManyLetters) {
-            throw new IllegalMessageException("insert a message within 1 to "
-                    + howManyLetters + " letters");
-        }
-        /* formatting message */
-        /* prevent that message contains small letters */
-        message = message.toUpperCase();
-
-        /* message contains spaces */
-        message = message.replaceAll(" ", "");
-
         String codedMessage = "";
         /* select the letter to encode */
         int pointer = 0;
@@ -94,11 +83,6 @@ public class CrypterSubstitution implements Crypter {
         }
 
         /* all letters correct for the key? */
-        for (int i = 0; i < key.length(); i++) {
-            if (!cleartext.contains((Character.toString(key.charAt(i))))) {
-                throw new IllegalKeyException("please Only use capital letters");
-            }
-        }
 
         /* does key contain duplicates? */
         for (int i = 0; i < key.length(); i++) {
@@ -115,18 +99,6 @@ public class CrypterSubstitution implements Crypter {
             }
         }
 
-        /* check message is within 0 and limit */
-        if (cypherText.length() == 0 || cypherText.length() > howManyLetters) {
-            throw new IllegalMessageException("insert a message within 1 to "
-                    + howManyLetters + " letters");
-        }
-
-        /* prevent that message contains small letters */
-        cypherText = cypherText.toUpperCase();
-
-        /* TODO message contains spaces, may we want this? */
-        cypherText = cypherText.replaceAll(" ", "");
-
         String decodedMessage = "";
 
         /* selects the letter to decode */
@@ -136,24 +108,19 @@ public class CrypterSubstitution implements Crypter {
             /* start from begin of key */
             int j = 0;
 
-            /* may spaces appear */
-            if (cypherText.charAt(pointer) == ' ') {
-                decodedMessage += ' ';
-            } else {
-                while (cypherText.charAt(pointer) != (key.charAt(j))) {
-                    j++;
+            while (cypherText.charAt(pointer) != (key.charAt(j))) {
+                j++;
 
-                    if (j == key.length()) {
-                        throw new IllegalMessageException(
-                                "please only use latin letters");
-                    }
+                if (j == key.length()) {
+                    throw new IllegalMessageException(
+                            "please only use latin letters");
                 }
-                /* we found the letter in cleartext at position(j) */
-                decodedMessage += cleartext.charAt(j);
             }
-
-            pointer++;
+            /* we found the letter in cleartext at position(j) */
+            decodedMessage += cleartext.charAt(j);
         }
+
+        pointer++;
 
         return decodedMessage;
 
