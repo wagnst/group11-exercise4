@@ -3,8 +3,8 @@ package de.wagnst.tpe.exercise.crypter;
 public class KeyCorrectness {
 
     /**
-     * checks the length of the key return true if length is correct, else
-     * false; throws exception if key is null
+     * checks the length of given key and compares it with minimum/maximum
+     * length addicted to the encode/decode method on use
      * 
      * @throws IllegalKeyException if key is null
      * @param method of encode/decode
@@ -13,8 +13,9 @@ public class KeyCorrectness {
      */
     public static void checkLength(CrypterVerfahren method, String key)
             throws IllegalKeyException {
-
-        if (key.length() == -1 && key.length() <= method.getMaxKeyLength()) {
+        /* set maximum key length on default -1 for XOR */
+        if (key.length() >= method.getMinKeyLength()
+                && method.getMaxKeyLength() == -1) {
             return;
         } else if (key.length() >= method.getMinKeyLength()
                 && key.length() <= method.getMaxKeyLength()) {
@@ -22,7 +23,7 @@ public class KeyCorrectness {
         } else
 
             /* TODO message fixen */
-            throw new IllegalKeyException("we need "+ method.getKeyRange()+"literal");
+            throw new IllegalKeyException("we need " + method.getKeyRange());
     }
 
     public static void checkLiterals(CrypterVerfahren method, String key)
