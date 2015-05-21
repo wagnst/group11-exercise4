@@ -53,7 +53,8 @@ public class CrypterSubstitution implements Crypter {
         for (int i = 0; i < message.length(); i++) {
             /* start from begin of key */
             int j = 0;
-            while (message.charAt(pointer) != (cleartext.charAt(j))) {
+            while (message.charAt(pointer) != (CrypterVerfahren.SUBSTITUTION
+                    .getAlphabet().charAt(j))) {
                 j++;
 
                 if (j == key.length()) {
