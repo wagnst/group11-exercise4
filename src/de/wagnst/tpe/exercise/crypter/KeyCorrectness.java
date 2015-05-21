@@ -21,7 +21,7 @@ public class KeyCorrectness {
             return;
         } else
 
-            /* TODO key min max fixen */
+            /* TODO message fixen */
             throw new IllegalKeyException("we need "+ method.getKeyRange()+"literal");
     }
 
