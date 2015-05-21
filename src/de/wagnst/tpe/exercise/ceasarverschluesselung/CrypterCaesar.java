@@ -10,12 +10,14 @@ public class CrypterCaesar implements Crypter{
 
 
     @Override
-    public String entschluesseln(String key, String cypherText) throws IllegalKeyException, IllegalMessageException {
+    public String entschluesseln(String key, String cypherText)
+            throws IllegalKeyException, IllegalMessageException {
         return null;
     }
 
     @Override
-    public String verschluesseln(String key, String message) throws IllegalKeyException, IllegalMessageException {
+    public String verschluesseln(String key, String message)
+            throws IllegalKeyException, IllegalMessageException {
         return null;
     }
 }
