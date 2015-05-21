@@ -20,7 +20,6 @@ public class TestEncode {
         assertEquals("DEFG", test.verschluesseln(key, "ABCD"));
         assertEquals("BCD", test.verschluesseln(key, "YZA"));
         assertEquals("CGP", test.verschluesseln(key, "ZDM"));
-        assertEquals("", test.entschluesseln(key, ""));
         assertEquals("DEFGHIJKLMNOPQRSTUVWXYZABC",
                 test.verschluesseln(key, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
     }

@@ -21,7 +21,6 @@ public class TestDecode {
         assertEquals("ABCD", test.entschluesseln(key, "DEFG"));
         assertEquals("YZA", test.entschluesseln(key, "BCD"));
         assertEquals("ZDM", test.entschluesseln(key, "CGP"));
-        assertEquals("", test.entschluesseln(key, ""));
         assertEquals("ABCDEFGHIJKLMNOPQRSTUVWXYZ",
                 test.entschluesseln(key, "DEFGHIJKLMNOPQRSTUVWXYZABC"));
     }
@@ -32,8 +31,8 @@ public class TestDecode {
     public void removeSpacesAndSmallLetters() throws IllegalKeyException,
             IllegalMessageException {
 
-        assertEquals("DEFG", test.entschluesseln(key, "AB CD"));
-        assertEquals("BCD", test.entschluesseln(key, "yza"));
+        assertEquals("ABCD", test.entschluesseln(key, " D E FG"));
+        assertEquals("YZA", test.entschluesseln(key, "bcd"));
     }
 
     /*
