@@ -1,5 +1,6 @@
 package de.wagnst.tpe.exercise.crypter;
 
+import de.wagnst.tpe.exercise.ceasarverschluesselung.CrypterCaesar;
 import de.wagnst.tpe.exercise.subsitutionschiffre.CrypterSubstitution;
 import de.wagnst.tpe.exercise.xorcrypt.CrypterXOR;
 
