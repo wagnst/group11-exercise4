@@ -1,8 +1,10 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
 import de.wagnst.tpe.exercise.crypter.Crypter;
+import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
 import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
 import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
+import de.wagnst.tpe.exercise.crypter.KeyCorrectness;
 
 public class CrypterSubstitution implements Crypter {
 
@@ -29,43 +31,11 @@ public class CrypterSubstitution implements Crypter {
     @Override
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
-        /* @general */
-        /* TODO method for each Exception check forXY, own class? */
 
-        /*
-         * TODO key with less than 26 letters allowed?? want this
-         * implementation?
-         */
+        KeyCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, key);
+        KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
+        KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        /* key correctness */
-        /* length of key correct? */
-        if (key.length() != 26) {
-            throw new IllegalKeyException("please insert within 26 letters");
-        }
-
-        /* all letters correct for the key? */
-        for (int i = 0; i < key.length(); i++) {
-            if (!cleartext.contains((Character.toString(key.charAt(i))))) {
-                throw new IllegalKeyException("please Only use capital letters");
-            }
-        }
-
-        /* does key contain duplicates? */
-        for (int i = 0; i < key.length(); i++) {
-            int count = 0;
-            for (int j = 0; j < key.length(); j++) {
-                if (key.charAt(i) == key.charAt(j)) {
-                    count++;
-                    if (count > 1) {
-                        throw new IllegalKeyException(
-                                "duplicates are not allowed");
-                    }
-
-                }
-            }
-        }
-
-        /* TODO warum muss ich den "neuen" Wert wieder zuweisen? */
         if (message.length() == 0 || message.length() > howManyLetters) {
             throw new IllegalMessageException("insert a message within 1 to "
                     + howManyLetters + " letters");
