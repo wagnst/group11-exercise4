@@ -22,9 +22,7 @@ public class KeyCorrectness {
         } else
 
             /* TODO key min max fixen */
-            throw new IllegalKeyException("key needs to be between "
-                    + method.getMinKeyLength() + " and "
-                    + method.getMaxKeyLength() + " literals");
+            throw new IllegalKeyException("we need "+ method.getKeyRange()+"literal");
     }
 
     public static void checkLiterals(CrypterVerfahren method, String key)
