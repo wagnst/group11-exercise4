@@ -1,5 +1,7 @@
 package de.wagnst.tpe.exercise.swing;
 
+import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +13,10 @@ public class Hauptansicht extends JFrame {
     private JTextArea keyField = new JTextArea("DEFGHIJKLMNOPQRSTUVWXYZABC");
     private JTextArea codedField = new JTextArea();
     private JComboBox crypterList = new JComboBox(
-            new String[] {"SUBSTITUTION", "CAESAR", "XOR"});
+            new String[] {CrypterVerfahren.SUBSTITUTION.getName(),
+                          CrypterVerfahren.CAESAR.getName(),
+                          CrypterVerfahren.XOR.getName()
+            });
 
     public Hauptansicht() {
         super("Enigma");

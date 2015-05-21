@@ -1,6 +1,7 @@
 package de.wagnst.tpe.exercise.swing;
 
 import de.wagnst.tpe.exercise.crypter.Crypter;
+import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
 import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
 import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
 import de.wagnst.tpe.exercise.subsitutionschiffre.CrypterSubstitution;
@@ -28,7 +29,8 @@ public class DecoderActionListener implements ActionListener {
 
     public void actionPerformed(ActionEvent event) {
 
-        if (selectedCrypter.getSelectedItem().equals("SUBSTITUTION")) {
+        if (selectedCrypter.getSelectedItem().equals(
+                CrypterVerfahren.SUBSTITUTION.getName())) {
             Crypter enigma = new CrypterSubstitution();
             try {
                 encodeField.setText(enigma.entschluesseln(keyField.getText(),
@@ -40,9 +42,11 @@ public class DecoderActionListener implements ActionListener {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
             }
-        } else if (selectedCrypter.getSelectedItem().equals("CAESAR")) {
+        } else if (selectedCrypter.getSelectedItem().equals(
+                CrypterVerfahren.CAESAR.getName())) {
             JOptionPane.showMessageDialog(null, "CAESAR");
-        } else if (selectedCrypter.getSelectedItem().equals("XOR")) {
+        } else if (selectedCrypter.getSelectedItem().equals(
+                CrypterVerfahren.XOR.getName())) {
             JOptionPane.showMessageDialog(null, "XOR");
         }
     }
