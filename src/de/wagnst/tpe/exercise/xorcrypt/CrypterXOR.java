@@ -10,7 +10,7 @@ import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
  * Created on 21.05.2015, 12:13 Project: group11-exercise4
  */
 
-public class XorCrypt implements Crypter {
+public class CrypterXOR implements Crypter {
 
     /**
      * @see de.wagnst.tpe.exercise.crypter
