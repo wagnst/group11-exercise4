@@ -1,4 +1,5 @@
 package de.wagnst.tpe.exercise.crypter;
+
 /**
  * Copyright by Steffen Wagner (D059727)
  *
@@ -6,23 +7,25 @@ package de.wagnst.tpe.exercise.crypter;
  */
 
 public enum CrypterVerfahren {
-    SUBSTITUTION("Substitution", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26),
-    CAESAR("Caesar", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1),
-    XOR("XOR", "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_");
+    SUBSTITUTION("Substitution", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26,"exactly 26"), 
+    CAESAR("Caesar", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1,"exactly 1"), 
+    XOR("XOR","@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_","min 1");
 
     private final String name;
     private final String alphabet;
     private final int minKeyLength;
     private final int maxKeyLength;
+    private final String keyRange;
 
     /**
      * Constructor used for XOR encryption, because it does not need key length
      *
      * @param alphabet String of allowed chars for usage in encryption
      */
-    private CrypterVerfahren(String name, String alphabet) {
+    private CrypterVerfahren(String name, String alphabet, String keyRange) {
         this.name = name;
         this.alphabet = alphabet;
+        this.keyRange = keyRange;
         minKeyLength = -1;
         maxKeyLength = -1;
     }
@@ -34,16 +37,19 @@ public enum CrypterVerfahren {
      * @param minKeyLength minimum length of key that is allowed
      * @param maxKeyLength maximum length of key that is allowed
      */
-    private CrypterVerfahren(String name, String alphabet, int minKeyLength, int maxKeyLength) {
+    private CrypterVerfahren(String name, String alphabet, int minKeyLength,
+            int maxKeyLength, String keyRange) {
         this.name = name;
         this.alphabet = alphabet;
         this.minKeyLength = minKeyLength;
         this.maxKeyLength = maxKeyLength;
+        this.keyRange = keyRange;
     }
 
     public String getName() {
         return this.name;
     }
+
     public String getAlphabet() {
         return this.alphabet;
     }
@@ -54,5 +60,9 @@ public enum CrypterVerfahren {
 
     public int getMaxKeyLength() {
         return this.maxKeyLength;
+    }
+    
+    public String getKeyRange(){
+        return this.keyRange;
     }
 }
