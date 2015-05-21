@@ -7,9 +7,9 @@ package de.wagnst.tpe.exercise.crypter;
  */
 
 public enum CrypterVerfahren {
-    SUBSTITUTION("Substitution", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26,"exactly 26"), 
-    CAESAR("Caesar", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1,"exactly 1"), 
-    XOR("XOR","@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_","min 1");
+    SUBSTITUTION("Substitution", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26,"exactly 26 letters"), 
+    CAESAR("Caesar", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1,"exactly 1 letter"), 
+    XOR("XOR","@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_","min 1 literal");
 
     private final String name;
     private final String alphabet;
