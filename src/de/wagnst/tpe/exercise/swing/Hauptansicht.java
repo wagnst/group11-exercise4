@@ -12,11 +12,9 @@ public class Hauptansicht extends JFrame {
     private JTextArea messageField = new JTextArea();
     private JTextArea keyField = new JTextArea("DEFGHIJKLMNOPQRSTUVWXYZABC");
     private JTextArea codedField = new JTextArea();
-    private JComboBox crypterList = new JComboBox(
-            new String[] {CrypterVerfahren.SUBSTITUTION.getName(),
-                          CrypterVerfahren.CAESAR.getName(),
-                          CrypterVerfahren.XOR.getName()
-            });
+    private JComboBox crypterList = new JComboBox(new String[] {
+            CrypterVerfahren.SUBSTITUTION.getName(),
+            CrypterVerfahren.CAESAR.getName(), CrypterVerfahren.XOR.getName() });
 
     public Hauptansicht() {
         super("Enigma");
@@ -51,8 +49,7 @@ public class Hauptansicht extends JFrame {
         encodePanel.add(encodeLabel);
         encodePanel.add(codedField);
 
-        /* Buttons and Combo*/
-
+        /* Buttons and Combo */
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
 
@@ -84,11 +81,11 @@ public class Hauptansicht extends JFrame {
         this.add(masterPanel);
 
         /* ActionListener for each encode/decode method */
-        encodeButton.addActionListener(new EncoderActionListener(
-                messageField, keyField, codedField, crypterList));
+        encodeButton.addActionListener(new EncoderActionListener(messageField,
+                keyField, codedField, crypterList));
 
-        decodeButton.addActionListener(new DecoderActionListener(
-                messageField, keyField, codedField, crypterList));
+        decodeButton.addActionListener(new DecoderActionListener(messageField,
+                keyField, codedField, crypterList));
 
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
