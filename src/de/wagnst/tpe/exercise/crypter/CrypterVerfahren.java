@@ -6,8 +6,8 @@ package de.wagnst.tpe.exercise.crypter;
  */
 
 public enum CrypterVerfahren {
-    SUBSTITUTION("SUBSTITUTION", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26),
-    CAESAR("CAESAR", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1),
+    SUBSTITUTION("Substitution", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26),
+    CAESAR("Caesar", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1),
     XOR("XOR", "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_");
 
     private final String name;
