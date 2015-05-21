@@ -11,7 +11,7 @@ public class TestEncode {
 
     private String key = "DEFGHIJKLMNOPQRSTUVWXYZABC";
 
-    Crypter test = new Substi();
+    Crypter test = new CrypterSubstitution();
 
     /* encode */
     @Test

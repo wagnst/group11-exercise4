@@ -22,7 +22,7 @@ public class SubstiDecoderActionListener implements ActionListener {
 
     public void actionPerformed(ActionEvent event) {
 
-        Crypter enigma = new Substi();
+        Crypter enigma = new CrypterSubstitution();
 
         try {
             encodeField.setText(enigma.entschluesseln(keyField.getText(),

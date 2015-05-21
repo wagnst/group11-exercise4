@@ -11,7 +11,7 @@ public class CrypterFactory {
     public static Crypter createCrypter(CrypterVerfahren method) {
         switch (method) {
         case SUBSTI:
-            return new Substi();
+            return new CrypterSubstitution();
         case CAESAR:
             return null;
         case XOR:
