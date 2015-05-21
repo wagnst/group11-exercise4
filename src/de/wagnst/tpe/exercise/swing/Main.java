@@ -7,7 +7,7 @@ public class Main {
         // opens window
         JFrame CryptoFenster = new Hauptansicht();
 
-        // window size (h/w)
+        // window size (w/h)
         CryptoFenster.setSize(500, 300);
 
         // window position center
