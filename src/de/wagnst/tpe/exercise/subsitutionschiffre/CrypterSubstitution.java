@@ -1,21 +1,8 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
-import de.wagnst.tpe.exercise.crypter.Crypter;
-import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
-import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
-import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
-import de.wagnst.tpe.exercise.crypter.KeyCorrectness;
+import de.wagnst.tpe.exercise.crypter.*;
 
 public class CrypterSubstitution implements Crypter {
-
-    private String cleartext = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    public String getCleartext() {
-        return cleartext;
-    }
-
-    /* to prevent system performance set max. letters */
-    private int howManyLetters = 10000;
 
     /**
      * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
@@ -36,7 +23,10 @@ public class CrypterSubstitution implements Crypter {
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        String codedMessage = "";
+        message = MessageCorrectness.checkAndFormat(
+                CrypterVerfahren.SUBSTITUTION, message);
+
+        String transformedMessage = "";
         /* select the letter to encode */
         int pointer = 0;
         for (int i = 0; i < message.length(); i++) {
@@ -46,19 +36,13 @@ public class CrypterSubstitution implements Crypter {
                     .getAlphabet().charAt(j))) {
                 j++;
 
-                if (j == key.length()) {
-                    /* literal not at cleartext */
-                    throw new IllegalMessageException(
-                            "please only use latin letters");
-                }
-
             }
             /* we found the letter in cleartext at position(j) */
-            codedMessage += key.charAt(j);
+            transformedMessage += key.charAt(j);
             pointer++;
         }
 
-        return codedMessage;
+        return transformedMessage;
 
     }
 
@@ -76,30 +60,14 @@ public class CrypterSubstitution implements Crypter {
     @Override
     public String entschluesseln(String key, String cypherText)
             throws IllegalKeyException, IllegalMessageException {
-        /* key correctness */
-        /* length of key correct? */
-        if (key.length() != 26) {
-            throw new IllegalKeyException("please insert within 26 letters");
-        }
 
-        /* all letters correct for the key? */
+        KeyCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, key);
+        KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
+        KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        /* does key contain duplicates? */
-        for (int i = 0; i < key.length(); i++) {
-            int count = 0;
-            for (int j = 0; j < key.length(); j++) {
-                if (key.charAt(i) == key.charAt(j)) {
-                    count++;
-                    if (count > 1) {
-                        throw new IllegalKeyException(
-                                "duplicates are not allowed");
-                    }
-
-                }
-            }
-        }
-
-        String decodedMessage = "";
+        cypherText = MessageCorrectness.checkAndFormat(
+                CrypterVerfahren.SUBSTITUTION, cypherText);
+        String transformedMessage = "";
 
         /* selects the letter to decode */
         int pointer = 0;
@@ -111,18 +79,16 @@ public class CrypterSubstitution implements Crypter {
             while (cypherText.charAt(pointer) != (key.charAt(j))) {
                 j++;
 
-                if (j == key.length()) {
-                    throw new IllegalMessageException(
-                            "please only use latin letters");
-                }
             }
-            /* we found the letter in cleartext at position(j) */
-            decodedMessage += cleartext.charAt(j);
+            /* we found the letter at position(j) */
+
+            transformedMessage += CrypterVerfahren.SUBSTITUTION.getAlphabet()
+                    .charAt(j);
+            pointer++;
+
         }
 
-        pointer++;
-
-        return decodedMessage;
+        return transformedMessage;
 
     }
 }
