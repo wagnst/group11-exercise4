@@ -6,10 +6,11 @@ package de.wagnst.tpe.exercise.crypter;
  */
 
 public enum CrypterVerfahren {
-    SUBSTITUTION("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26),
-    CAESAR("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1),
-    XOR("@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_");
+    SUBSTITUTION("SUBSTITUTION", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26),
+    CAESAR("CAESAR", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1),
+    XOR("XOR", "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_");
 
+    private final String name;
     private final String alphabet;
     private final int minKeyLength;
     private final int maxKeyLength;
@@ -19,7 +20,8 @@ public enum CrypterVerfahren {
      *
      * @param alphabet String of allowed chars for usage in encryption
      */
-    private CrypterVerfahren(String alphabet) {
+    private CrypterVerfahren(String name, String alphabet) {
+        this.name = name;
         this.alphabet = alphabet;
         minKeyLength = -1;
         maxKeyLength = -1;
@@ -32,12 +34,16 @@ public enum CrypterVerfahren {
      * @param minKeyLength minimum length of key that is allowed
      * @param maxKeyLength maximum length of key that is allowed
      */
-    private CrypterVerfahren(String alphabet, int minKeyLength, int maxKeyLength) {
+    private CrypterVerfahren(String name, String alphabet, int minKeyLength, int maxKeyLength) {
+        this.name = name;
         this.alphabet = alphabet;
         this.minKeyLength = minKeyLength;
         this.maxKeyLength = maxKeyLength;
     }
 
+    public String getName() {
+        return this.name;
+    }
     public String getAlphabet() {
         return this.alphabet;
     }
