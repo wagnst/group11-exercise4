@@ -1,6 +1,6 @@
 package de.wagnst.tpe.exercise.crypter;
 
-import de.wagnst.tpe.exercise.subsitutionschiffre.*;
+import de.wagnst.tpe.exercise.subsitutionschiffre.Substi;
 
 public class CrypterFactory {
 
@@ -10,15 +10,16 @@ public class CrypterFactory {
 
     public static Crypter createCrypter(CrypterVerfahren method) {
         switch (method) {
-        case SUBSTI:
-            return new CrypterSubstitution();
-        case CAESAR:
-            return null;
-        case XOR:
-            return null;
+            case SUBSTI:
+                return new Substi();
+            case CAESAR:
+                return null;
+            case XOR:
+                return null;
+            default:
+                //Todo: exception schmeissen, wenn hier
+                return null;
 
         }
-        return null;
-
     }
 }
