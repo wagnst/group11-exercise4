@@ -6,10 +6,10 @@ public class KeyCorrectness {
      * checks the length of given key and compares it with minimum/maximum
      * length addicted to the encode/decode method on use
      * 
-     * @throws IllegalKeyException if key is null
-     * @param method of encode/decode
-     * @param key to check
-     * @return boolean
+     * 
+     * @param CrypterVerfahren method to encode/decode
+     * @param String key to check
+     * @throws IllegalKeyException if key is null or out of range min/max
      */
     public static void checkLength(CrypterVerfahren method, String key)
             throws IllegalKeyException {
@@ -26,17 +26,35 @@ public class KeyCorrectness {
             throw new IllegalKeyException("we need " + method.getKeyRange());
     }
 
+    /**
+     * checks keys literals and compares it with the alphabet given from the
+     * encode/decode method on use
+     * 
+     * @param CrypterVerfahren method to encode/decode
+     * @param String key to check
+     * @throws IllegalKeyException if at least one literal is not at alphabet
+     *         from the method on use
+     * */
     public static void checkLiterals(CrypterVerfahren method, String key)
             throws IllegalKeyException {
 
         for (int i = 0; i < key.length(); i++) {
             if (!method.getAlphabet().contains(
                     (Character.toString(key.charAt(i))))) {
-                throw new IllegalKeyException("please Only use capital letters");
+                throw new IllegalKeyException("check the alphabet of "
+                        + method.getName());
             }
         }
     }
 
+    /**
+     * checks the key if it contains any duplicates
+     * 
+     * @param CrypterVerfahren method to encode/decode
+     * @param String key to check
+     * @throws IllegalKeyException if duplicates detected
+     * 
+     * */
     public static void checkDuplicates(CrypterVerfahren method, String key)
             throws IllegalKeyException {
         for (int i = 0; i < key.length(); i++) {
@@ -53,5 +71,4 @@ public class KeyCorrectness {
             }
         }
     }
-
 }
