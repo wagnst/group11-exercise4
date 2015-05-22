@@ -123,6 +123,7 @@ public class Enigma extends JFrame {
         messagePanel.setLayout(new BoxLayout(messagePanel, BoxLayout.X_AXIS));
         
         JScrollPane messageScrollPane = new JScrollPane();
+        messageScrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         messageScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         messagePanel.add(messageScrollPane);
         
@@ -168,6 +169,7 @@ public class Enigma extends JFrame {
         returnPanel.setLayout(new BoxLayout(returnPanel, BoxLayout.X_AXIS));
         
         JScrollPane returnScrollPane = new JScrollPane();
+        returnScrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         returnScrollPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         returnPanel.add(returnScrollPane);
         

@@ -19,6 +19,7 @@ public class Main {
         CryptoFenster.setVisible(true);
 */
         
+       
         /*setting for Enigma*/
         JFrame cryptoFenster = new Enigma();
         cryptoFenster.setSize(700,400);
