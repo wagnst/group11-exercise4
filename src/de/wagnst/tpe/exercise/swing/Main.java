@@ -4,6 +4,8 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+        
+        /*
         // opens window
         JFrame CryptoFenster = new Hauptansicht();
 
@@ -15,7 +17,14 @@ public class Main {
 
         // set it visible
         CryptoFenster.setVisible(true);
-
+*/
+        
+        /*setting for Enigma*/
+        JFrame cryptoFenster = new Enigma();
+        cryptoFenster.setSize(700,400);
+        cryptoFenster.setLocationRelativeTo(null);
+        cryptoFenster.setVisible(true);
+        
     }
 
 }

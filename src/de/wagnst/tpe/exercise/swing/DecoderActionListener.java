@@ -13,12 +13,12 @@ import java.awt.event.ActionListener;
 public class DecoderActionListener implements ActionListener {
 
     private JTextArea messageField = new JTextArea();
-    private JTextArea keyField = new JTextArea();
+    private JTextField keyField = new JTextField();
     private JTextArea encodeField = new JTextArea();
     private JComboBox selectedCrypter;
 
     public DecoderActionListener(JTextArea messageField,
-                                 JTextArea keyField,
+                                 JTextField keyField,
                                  JTextArea encodeField,
                                  JComboBox selectedCrypter) {
         this.messageField = messageField;
