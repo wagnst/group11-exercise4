@@ -7,8 +7,8 @@ public class KeyCorrectness {
      * length addicted to the encode/decode method on use
      * 
      * 
-     * @param CrypterVerfahren method to encode/decode
-     * @param String key to check
+     * @param method to encode/decode
+     * @param key to check
      * @throws IllegalKeyException if key is null or out of range min/max
      */
     public static void checkLength(CrypterVerfahren method, String key)
@@ -30,8 +30,8 @@ public class KeyCorrectness {
      * checks keys literals and compares it with the alphabet given from the
      * encode/decode method on use
      * 
-     * @param CrypterVerfahren method to encode/decode
-     * @param String key to check
+     * @param  method to encode/decode
+     * @param  key to check
      * @throws IllegalKeyException if at least one literal is not at alphabet
      *         from the method on use
      * */
@@ -50,8 +50,8 @@ public class KeyCorrectness {
     /**
      * checks the key if it contains any duplicates
      * 
-     * @param CrypterVerfahren method to encode/decode
-     * @param String key to check
+     * @param  method to encode/decode
+     * @param  key to check
      * @throws IllegalKeyException if duplicates detected
      * 
      * */
