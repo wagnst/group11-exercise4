@@ -39,6 +39,7 @@ import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JToggleButton;
 
 public class Enigma extends JFrame {
 
@@ -97,7 +98,6 @@ public class Enigma extends JFrame {
         );
         keyPanel.setLayout(gl_keyPanel);
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        /* TODO */
         JComboBox comboBox = new JComboBox(new String[] {
                 CrypterVerfahren.SUBSTITUTION.getName(),
                 CrypterVerfahren.CAESAR.getName(),
