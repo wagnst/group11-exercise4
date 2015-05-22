@@ -36,6 +36,9 @@ import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.SwingConstants;
+import java.awt.SystemColor;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EtchedBorder;
 
 public class Enigma extends JFrame {
 
@@ -52,47 +55,46 @@ public class Enigma extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
+        contentPane.setBackground(SystemColor.scrollbar);
         contentPane.setAlignmentX(Component.RIGHT_ALIGNMENT);
         contentPane.setBorder(null);
         setContentPane(contentPane);
 
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(SystemColor.controlShadow);
+        buttonPanel.setForeground(new Color(0, 191, 255));
         buttonPanel.setAutoscrolls(true);
-        buttonPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null,
-                null, null));
+        buttonPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
 
         JPanel keyPanel = new JPanel();
-        keyPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null,
-                null, null));
+        keyPanel.setForeground(new Color(0, 191, 255));
+        keyPanel.setBackground(SystemColor.controlShadow);
+        keyPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
 
         keyField = new JTextField("DEFGHIJKLMNOPQRSTUVWXYZABC");
+        keyField.setFont(new Font("Comic Sans MS", Font.PLAIN, 10));
         keyField.setColumns(10);
 
         JLabel keyLabel = new JLabel("Key");
-        keyLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
+        keyLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 11));
         GroupLayout gl_keyPanel = new GroupLayout(keyPanel);
-        gl_keyPanel.setHorizontalGroup(gl_keyPanel.createParallelGroup(
-                Alignment.LEADING).addGroup(
-                gl_keyPanel
-                        .createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(keyLabel)
-                        .addPreferredGap(ComponentPlacement.UNRELATED)
-                        .addComponent(keyField, GroupLayout.DEFAULT_SIZE, 381,
-                                Short.MAX_VALUE).addContainerGap()));
-        gl_keyPanel.setVerticalGroup(gl_keyPanel.createParallelGroup(
-                Alignment.LEADING)
-                .addGroup(
-                        gl_keyPanel
-                                .createSequentialGroup()
-                                .addGap(5)
-                                .addGroup(
-                                        gl_keyPanel
-                                                .createParallelGroup(
-                                                        Alignment.BASELINE)
-                                                .addComponent(keyField)
-                                                .addComponent(keyLabel))
-                                .addGap(2)));
+        gl_keyPanel.setHorizontalGroup(
+            gl_keyPanel.createParallelGroup(Alignment.LEADING)
+                .addGroup(gl_keyPanel.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(keyLabel)
+                    .addPreferredGap(ComponentPlacement.UNRELATED)
+                    .addComponent(keyField, GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE))
+        );
+        gl_keyPanel.setVerticalGroup(
+            gl_keyPanel.createParallelGroup(Alignment.LEADING)
+                .addGroup(gl_keyPanel.createSequentialGroup()
+                    .addGap(5)
+                    .addGroup(gl_keyPanel.createParallelGroup(Alignment.BASELINE)
+                        .addComponent(keyField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(keyLabel))
+                    .addGap(2))
+        );
         keyPanel.setLayout(gl_keyPanel);
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         /* TODO */
@@ -100,6 +102,8 @@ public class Enigma extends JFrame {
                 CrypterVerfahren.SUBSTITUTION.getName(),
                 CrypterVerfahren.CAESAR.getName(),
                 CrypterVerfahren.XOR.getName() });
+        comboBox.setForeground(new Color(0, 0, 0));
+        comboBox.setBackground(SystemColor.window);
         
         comboBox.setSelectedIndex(0);
 
@@ -107,19 +111,22 @@ public class Enigma extends JFrame {
         buttonPanel.add(comboBox);
 
         JButton encodeButton = new JButton("Encode");
+        encodeButton.setForeground(SystemColor.menuText);
         encodeButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
         buttonPanel.add(encodeButton);
 
         JButton decodeButton = new JButton("Decode");
+        decodeButton.setForeground(SystemColor.menuText);
         decodeButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
         buttonPanel.add(decodeButton);
 
         JButton cancelButton = new JButton("Cancel");
+        cancelButton.setForeground(SystemColor.menuText);
         cancelButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
         buttonPanel.add(cancelButton);
         
         JPanel messagePanel = new JPanel();
-        messagePanel.setBorder(null);
+        messagePanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
         messagePanel.setLayout(new BoxLayout(messagePanel, BoxLayout.X_AXIS));
         
         JScrollPane messageScrollPane = new JScrollPane();
@@ -128,17 +135,19 @@ public class Enigma extends JFrame {
         messagePanel.add(messageScrollPane);
         
         JTextArea messageArea = new JTextArea();
+        messageArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
         messageArea.setWrapStyleWord(true);
         messageArea.setLineWrap(true);
         messageScrollPane.setViewportView(messageArea);
         
         JLabel lblMessage = new JLabel("Message");
-        lblMessage.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
+        lblMessage.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
         lblMessage.setHorizontalAlignment(SwingConstants.CENTER);
         lblMessage.setAlignmentX(Component.CENTER_ALIGNMENT);
         messageScrollPane.setColumnHeaderView(lblMessage);
         
         JPanel returnPanel = new JPanel();
+        returnPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         gl_contentPane.setHorizontalGroup(
             gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -174,13 +183,14 @@ public class Enigma extends JFrame {
         returnPanel.add(returnScrollPane);
         
         JTextArea returnArea = new JTextArea();
+        returnArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
         returnArea.setWrapStyleWord(true);
         returnArea.setLineWrap(true);
         returnArea.setEditable(false);
         returnScrollPane.setViewportView(returnArea);
         
         JLabel lblNewLabel = new JLabel("Return");
-        lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
+        lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         returnScrollPane.setColumnHeaderView(lblNewLabel);
         contentPane.setLayout(gl_contentPane);
