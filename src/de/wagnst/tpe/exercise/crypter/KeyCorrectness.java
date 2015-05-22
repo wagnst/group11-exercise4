@@ -30,14 +30,17 @@ public class KeyCorrectness {
      * checks keys literals and compares it with the alphabet given from the
      * encode/decode method on use
      * 
-     * @param  method to encode/decode
-     * @param  key to check
+     * @param method to encode/decode
+     * @param key to check
      * @throws IllegalKeyException if at least one literal is not at alphabet
      *         from the method on use
      * */
     public static void checkLiterals(CrypterVerfahren method, String key)
             throws IllegalKeyException {
-
+        /*
+         * TODO is any method interested in small and capital letters? --> else
+         * do toUpperCase
+         */
         for (int i = 0; i < key.length(); i++) {
             if (!method.getAlphabet().contains(
                     (Character.toString(key.charAt(i))))) {
@@ -50,8 +53,8 @@ public class KeyCorrectness {
     /**
      * checks the key if it contains any duplicates
      * 
-     * @param  method to encode/decode
-     * @param  key to check
+     * @param method to encode/decode
+     * @param key to check
      * @throws IllegalKeyException if duplicates detected
      * 
      * */
