@@ -27,14 +27,6 @@ public class TestDecode {
 
     /* KEY */
 
-    @Test
-    public void removeSpacesAndSmallLetters() throws IllegalKeyException,
-            IllegalMessageException {
-
-        assertEquals("ABCD", test.entschluesseln(key, " D E FG"));
-        assertEquals("YZA", test.entschluesseln(key, "bcd"));
-    }
-
     /*
      * KeyExceptions too small/large key
      */
@@ -89,7 +81,7 @@ public class TestDecode {
     public void IllegalKeyException7() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.entschluesseln("DEFGHIJKLMMOPQRSTUVWXYZABC", "HALLO");
+        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABD", "HALLO");
     }
 
     /* end */
@@ -105,7 +97,7 @@ public class TestDecode {
     @Test
     public void EncodeSmallLettersAndSpaces() throws IllegalKeyException,
             IllegalMessageException {
-        assertEquals("HALLOMRSMITS", test.entschluesseln(key, "KDOORPUVPLWV"));
+        assertEquals("HALLOMRSMITS", test.entschluesseln(key, "KDOoRP UVPLWV"));
     }
 
     /* empty message */
@@ -119,7 +111,12 @@ public class TestDecode {
     @Test(expected = IllegalMessageException.class)
     public void IllegalMessageException2() throws IllegalKeyException,
             IllegalMessageException {
-        assertEquals("ABC", test.entschluesseln(key, "!"));
+        assertEquals("ABC", test.entschluesseln(key, "ABC!"));
     }
 
+    @Test(expected = IllegalMessageException.class)
+    public void IllegalMessageException3() throws IllegalKeyException,
+            IllegalMessageException {
+        assertEquals("ABC", test.entschluesseln(key, "AB2C"));
+    }
 }

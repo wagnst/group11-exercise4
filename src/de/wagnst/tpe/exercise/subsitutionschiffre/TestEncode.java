@@ -24,15 +24,7 @@ public class TestEncode {
                 test.verschluesseln(key, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
     }
 
-    /* KEY */
-
-    @Test
-    public void removeSpacesAndSmallLetters() throws IllegalKeyException,
-            IllegalMessageException {
-
-        assertEquals("DEFG", test.verschluesseln(key, "AB CD"));
-        assertEquals("BCD", test.verschluesseln(key, "yza"));
-    }
+    /* Key */
 
     /*
      * KeyExceptions too small/large key
@@ -57,6 +49,13 @@ public class TestEncode {
             IllegalMessageException {
 
         test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZAB", "HALLO");
+    }
+
+    @Test(expected = IllegalKeyException.class)
+    public void IllegalKeyException9() throws IllegalKeyException,
+            IllegalMessageException {
+
+        test.verschluesseln("DEFGHIJKLMNOPQRS TUVWXYZABC", "HALLO");
     }
 
     /* illegal literals */
@@ -88,7 +87,7 @@ public class TestEncode {
     public void IllegalKeyException7() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("DEFGHIJKLMMOPQRSTUVWXYZABC", "HALLO");
+        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABD", "HALLO");
     }
 
     /* end */
@@ -99,7 +98,7 @@ public class TestEncode {
         test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZACC", "HALLO");
     }
 
-    /* MESSAGE */
+    /* Message */
 
     @Test
     public void EncodeSmallLettersAndSpaces() throws IllegalKeyException,
@@ -118,7 +117,13 @@ public class TestEncode {
     @Test(expected = IllegalMessageException.class)
     public void IllegalMessageException2() throws IllegalKeyException,
             IllegalMessageException {
-        assertEquals("ABC", test.verschluesseln(key, "!"));
+        assertEquals("ABC", test.verschluesseln(key, "ABC!"));
+    }
+
+    @Test(expected = IllegalMessageException.class)
+    public void IllegalMessageException3() throws IllegalKeyException,
+            IllegalMessageException {
+        assertEquals("ABC", test.verschluesseln(key, "ABC2"));
     }
 
 }
