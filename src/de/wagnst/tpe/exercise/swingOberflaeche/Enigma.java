@@ -1,4 +1,4 @@
-package de.wagnst.tpe.exercise.swing;
+package de.wagnst.tpe.exercise.swingOberflaeche;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

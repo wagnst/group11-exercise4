@@ -1,4 +1,4 @@
-package de.wagnst.tpe.exercise.swing;
+package de.wagnst.tpe.exercise.swingOberflaeche;
 
 
 import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
