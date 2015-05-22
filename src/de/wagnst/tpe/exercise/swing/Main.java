@@ -7,7 +7,7 @@ public class Main {
         
         /*
         // opens window
-        JFrame CryptoFenster = new Hauptansicht();
+        JFrame CryptoFenster = new HauptansichtDoof();
 
         // window size (w/h)
         CryptoFenster.setSize(500, 300);
