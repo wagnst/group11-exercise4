@@ -1,6 +1,7 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -112,5 +113,13 @@ public class TestDecode {
     public void IllegalMessageException3() throws IllegalKeyException,
             IllegalMessageException {
         assertEquals("ABC", test.entschluesseln(key, "AB2C"));
+    }
+
+    @Test
+    public void enDecode() throws IllegalKeyException, IllegalMessageException {
+        String text = "HALLO";
+
+        assertTrue(text.equals(test.verschluesseln(key,
+                test.entschluesseln(key, text))) == true);
     }
 }

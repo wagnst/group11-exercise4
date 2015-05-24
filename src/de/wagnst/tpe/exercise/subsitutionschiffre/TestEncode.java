@@ -1,8 +1,7 @@
 package de.wagnst.tpe.exercise.subsitutionschiffre;
 
-import de.wagnst.tpe.exercise.crypter.Crypter;
-import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
-import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
+import de.wagnst.tpe.exercise.crypter.*;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -100,7 +99,6 @@ public class TestEncode {
 
     /* Message */
 
-
     /* empty message */
     @Test(expected = IllegalMessageException.class)
     public void IllegalMessageException1() throws IllegalKeyException,
@@ -121,4 +119,11 @@ public class TestEncode {
         assertEquals("ABC", test.verschluesseln(key, "ABC2"));
     }
 
+    @Test
+    public void enDecode() throws IllegalKeyException, IllegalMessageException {
+        String text = "HALLO";
+
+        assertTrue(text.equals(test.entschluesseln(key,
+                test.verschluesseln(key, text))) == true);
+    }
 }
