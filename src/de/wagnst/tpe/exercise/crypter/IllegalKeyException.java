@@ -18,7 +18,7 @@ public class IllegalKeyException extends Exception {
     }
 
     public String getMessage() {
-        return message + " @ " + name;
+        return message + "\n check " + name;
     }
 
 }

@@ -100,11 +100,6 @@ public class TestEncode {
 
     /* Message */
 
-    @Test
-    public void EncodeSmallLettersAndSpaces() throws IllegalKeyException,
-            IllegalMessageException {
-        assertEquals("KDOORPUVPLWV", test.verschluesseln(key, "Hallo Mr Smits"));
-    }
 
     /* empty message */
     @Test(expected = IllegalMessageException.class)

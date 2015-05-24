@@ -23,8 +23,9 @@ public class CrypterSubstitution implements Crypter {
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        message = MessageCorrectness.checkAndFormat(
-                CrypterVerfahren.SUBSTITUTION, message);
+        MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, message);
+        MessageCorrectness
+                .checkLiterals(CrypterVerfahren.SUBSTITUTION, message);
 
         String transformedMessage = "";
         /* select the letter to encode */
@@ -65,8 +66,10 @@ public class CrypterSubstitution implements Crypter {
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        cypherText = MessageCorrectness.checkAndFormat(
-                CrypterVerfahren.SUBSTITUTION, cypherText);
+        MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION,
+                cypherText);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION,
+                cypherText);
         String transformedMessage = "";
 
         int pointer = 0;

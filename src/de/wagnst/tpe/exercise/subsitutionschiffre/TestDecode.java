@@ -94,12 +94,6 @@ public class TestDecode {
 
     /* MESSAGE */
 
-    @Test
-    public void EncodeSmallLettersAndSpaces() throws IllegalKeyException,
-            IllegalMessageException {
-        assertEquals("HALLOMRSMITS", test.entschluesseln(key, "KDOoRP UVPLWV"));
-    }
-
     /* empty message */
     @Test(expected = IllegalMessageException.class)
     public void IllegalMessageException1() throws IllegalKeyException,

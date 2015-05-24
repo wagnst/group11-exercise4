@@ -19,7 +19,7 @@ public class IllegalMessageException extends Exception {
 
     @Override
     public String getMessage() {
-        return message + " @ " + name;
+        return message +"\n check " + name;
     }
 
 }

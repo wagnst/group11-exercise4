@@ -23,7 +23,8 @@ public class KeyCorrectness {
         } else
 
             /* TODO message fixen */
-            throw new IllegalKeyException("we need " + method.getKeyRange());
+            throw new IllegalKeyException("we need " + method.getKeyRange()
+                    + " @ " + method.getName());
     }
 
     /**
@@ -44,8 +45,8 @@ public class KeyCorrectness {
         for (int i = 0; i < key.length(); i++) {
             if (!method.getAlphabet().contains(
                     (Character.toString(key.charAt(i))))) {
-                throw new IllegalKeyException("check the alphabet of "
-                        + method.getName());
+                throw new IllegalKeyException("check the alphabet @ "
+                        + method.getName()) ;
             }
         }
     }
@@ -67,7 +68,7 @@ public class KeyCorrectness {
                     count++;
                     if (count > 1) {
                         throw new IllegalKeyException(
-                                "duplicates are not allowed");
+                                "duplicates are not allowed @" + method.getName());
                     }
 
                 }
