@@ -9,7 +9,7 @@ public class KeyCorrectness {
      * 
      * @param method to encode/decode
      * @param key to check
-     * @throws IllegalKeyException if key is null or out of range min/max
+     * @throws IllegalKeyException if key is zero or out of range min/max 
      */
     public static void checkLength(CrypterVerfahren method, String key)
             throws IllegalKeyException {
@@ -35,23 +35,28 @@ public class KeyCorrectness {
      * @param key to check
      * @throws IllegalKeyException if at least one literal is not at alphabet
      *         from the method on use
-     * */
+     */
     public static void checkLiterals(CrypterVerfahren method, String key)
             throws IllegalKeyException {
         for (int i = 0; i < key.length(); i++) {
+            /* true if index is not at methods alphabet */
             if (!method.getAlphabet().contains(
                     (Character.toString(key.charAt(i))))) {
+
                 if (Character.isDigit(key.charAt(i))) {
                     throw new IllegalKeyException("numbers are not allowed @ "
                             + method.getName());
+
                 } else if (method.getAlphabet().contains(
                         Character.toString(key.charAt(i)).toUpperCase())) {
                     throw new IllegalKeyException("use capital letters @ "
                             + method.getName());
+
                 } else if (Character.isSpaceChar(key.charAt(i))) {
                     throw new IllegalKeyException("spaces are not allowed @ "
                             + method.getName());
                 } else {
+
                     throw new IllegalKeyException(
                             "have a look which special characters are allowed @ "
                                     + method.getName());
@@ -68,6 +73,8 @@ public class KeyCorrectness {
      * @throws IllegalKeyException if duplicates detected
      * 
      * */
+
+    /* TODO find a way without second for loop */
     public static void checkDuplicates(CrypterVerfahren method, String key)
             throws IllegalKeyException {
         for (int i = 0; i < key.length(); i++) {
