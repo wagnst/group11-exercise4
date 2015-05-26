@@ -52,32 +52,32 @@ public class Enigma extends JFrame {
     public Enigma() {
         setResizable(false);
         setTitle("Enigma");
-        setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 12));
+        setFont(new Font("Bell MT", Font.PLAIN, 12));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
-        contentPane.setBackground(SystemColor.scrollbar);
+        contentPane.setBackground(new Color(153, 153, 153));
         contentPane.setAlignmentX(Component.RIGHT_ALIGNMENT);
         contentPane.setBorder(null);
         setContentPane(contentPane);
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(SystemColor.controlShadow);
+        buttonPanel.setBackground(new Color(204, 204, 204));
         buttonPanel.setForeground(new Color(0, 191, 255));
         buttonPanel.setAutoscrolls(true);
         buttonPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
 
         JPanel keyPanel = new JPanel();
         keyPanel.setForeground(new Color(0, 191, 255));
-        keyPanel.setBackground(SystemColor.controlShadow);
+        keyPanel.setBackground(new Color(204, 204, 204));
         keyPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
 
         keyField = new JTextField("DEFGHIJKLMNOPQRSTUVWXYZABC");
-        keyField.setFont(new Font("Comic Sans MS", Font.PLAIN, 10));
+        keyField.setFont(new Font("Arial", Font.PLAIN, 10));
         keyField.setColumns(10);
 
         JLabel keyLabel = new JLabel("Key");
-        keyLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 11));
+        keyLabel.setFont(new Font("Arial", Font.BOLD, 11));
         GroupLayout gl_keyPanel = new GroupLayout(keyPanel);
         gl_keyPanel.setHorizontalGroup(
             gl_keyPanel.createParallelGroup(Alignment.LEADING)
@@ -107,22 +107,22 @@ public class Enigma extends JFrame {
         
         comboBox.setSelectedIndex(0);
 
-        comboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
+        comboBox.setFont(new Font("Arial", Font.PLAIN, 11));
         buttonPanel.add(comboBox);
 
         JButton encodeButton = new JButton("Encode");
         encodeButton.setForeground(SystemColor.menuText);
-        encodeButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
+        encodeButton.setFont(new Font("Arial", Font.PLAIN, 11));
         buttonPanel.add(encodeButton);
 
         JButton decodeButton = new JButton("Decode");
         decodeButton.setForeground(SystemColor.menuText);
-        decodeButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
+        decodeButton.setFont(new Font("Arial", Font.PLAIN, 11));
         buttonPanel.add(decodeButton);
 
         JButton cancelButton = new JButton("Cancel");
         cancelButton.setForeground(SystemColor.menuText);
-        cancelButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
+        cancelButton.setFont(new Font("Arial", Font.PLAIN, 11));
         buttonPanel.add(cancelButton);
         
         JPanel messagePanel = new JPanel();
@@ -135,13 +135,14 @@ public class Enigma extends JFrame {
         messagePanel.add(messageScrollPane);
         
         JTextArea messageArea = new JTextArea();
-        messageArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
+        messageArea.setFont(new Font("Arial", Font.PLAIN, 12));
         messageArea.setWrapStyleWord(true);
         messageArea.setLineWrap(true);
         messageScrollPane.setViewportView(messageArea);
         
         JLabel lblMessage = new JLabel("Message");
-        lblMessage.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
+        lblMessage.setBackground(new Color(204, 204, 204));
+        lblMessage.setFont(new Font("Arial", Font.BOLD, 13));
         lblMessage.setHorizontalAlignment(SwingConstants.CENTER);
         lblMessage.setAlignmentX(Component.CENTER_ALIGNMENT);
         messageScrollPane.setColumnHeaderView(lblMessage);
@@ -183,14 +184,14 @@ public class Enigma extends JFrame {
         returnPanel.add(returnScrollPane);
         
         JTextArea returnArea = new JTextArea();
-        returnArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 12));
+        returnArea.setFont(new Font("Arial", Font.PLAIN, 12));
         returnArea.setWrapStyleWord(true);
         returnArea.setLineWrap(true);
         returnArea.setEditable(false);
         returnScrollPane.setViewportView(returnArea);
         
         JLabel lblNewLabel = new JLabel("Return");
-        lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
+        lblNewLabel.setFont(new Font("Arial", Font.BOLD, 13));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         returnScrollPane.setColumnHeaderView(lblNewLabel);
         contentPane.setLayout(gl_contentPane);
