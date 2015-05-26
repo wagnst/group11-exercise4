@@ -28,8 +28,8 @@ public class KeyCorrectness {
     }
 
     /**
-     * checks keys literals and compares it with the alphabet given from the
-     * encode/decode method on use
+     * check keys literals and compares it with the alphabet given from the
+     * method on use
      * 
      * @param method to encode/decode
      * @param key to check
@@ -38,15 +38,24 @@ public class KeyCorrectness {
      * */
     public static void checkLiterals(CrypterVerfahren method, String key)
             throws IllegalKeyException {
-        /*
-         * TODO is any method interested in small and capital letters? --> else
-         * do toUpperCase
-         */
         for (int i = 0; i < key.length(); i++) {
             if (!method.getAlphabet().contains(
                     (Character.toString(key.charAt(i))))) {
-                throw new IllegalKeyException("check the alphabet @ "
-                        + method.getName()) ;
+                if (Character.isDigit(key.charAt(i))) {
+                    throw new IllegalKeyException("numbers are not allowed @ "
+                            + method.getName());
+                } else if (method.getAlphabet().contains(
+                        Character.toString(key.charAt(i)).toUpperCase())) {
+                    throw new IllegalKeyException("use capital letters @ "
+                            + method.getName());
+                } else if (Character.isSpaceChar(key.charAt(i))) {
+                    throw new IllegalKeyException("spaces are not allowed @ "
+                            + method.getName());
+                } else {
+                    throw new IllegalKeyException(
+                            "have a look which special characters are allowed @ "
+                                    + method.getName());
+                }
             }
         }
     }
@@ -68,7 +77,8 @@ public class KeyCorrectness {
                     count++;
                     if (count > 1) {
                         throw new IllegalKeyException(
-                                "duplicates are not allowed @" + method.getName());
+                                "duplicates are not allowed @"
+                                        + method.getName());
                     }
 
                 }
