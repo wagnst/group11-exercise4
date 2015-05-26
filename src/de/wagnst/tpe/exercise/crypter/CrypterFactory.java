@@ -15,7 +15,6 @@ public class CrypterFactory {
      * crypther instances depending on the wished method
      *
      * @param method type of crypter method which should be used
-     *
      * @return instance of encryption type
      */
     public static Crypter createCrypter(CrypterVerfahren method)

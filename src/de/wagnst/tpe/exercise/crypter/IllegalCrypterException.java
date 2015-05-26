@@ -2,7 +2,7 @@ package de.wagnst.tpe.exercise.crypter;
 
 /**
  * Copyright by Steffen Wagner (D059727)
- *
+ * <p/>
  * Created on 21.05.2015, 13:38 Project: group11-exercise4
  */
 

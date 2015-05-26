@@ -14,9 +14,9 @@ public class HauptansichtDoof extends JFrame {
     private JTextField keyField = new JTextField("DEFGHIJKLMNOPQRSTUVWXYZABC");
     private JTextArea codedField = new JTextArea();
     private JComboBox crypterList = new JComboBox(
-            new String[] {CrypterVerfahren.SUBSTITUTION.getName(),
-                          CrypterVerfahren.CAESAR.getName(),
-                          CrypterVerfahren.XOR.getName()
+            new String[]{CrypterVerfahren.SUBSTITUTION.getName(),
+                    CrypterVerfahren.CAESAR.getName(),
+                    CrypterVerfahren.XOR.getName()
             });
 
     public HauptansichtDoof() {

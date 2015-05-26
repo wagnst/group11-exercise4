@@ -5,8 +5,7 @@ import de.wagnst.tpe.exercise.crypter.Crypter;
 import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
 import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
 
-public class CrypterCaesar implements Crypter{
-
+public class CrypterCaesar implements Crypter {
 
 
     @Override

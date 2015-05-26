@@ -22,10 +22,10 @@ public class Main {
        
         /*setting for Enigma*/
         JFrame cryptoFenster = new Enigma();
-        cryptoFenster.setSize(700,400);
+        cryptoFenster.setSize(700, 400);
         cryptoFenster.setLocationRelativeTo(null);
         cryptoFenster.setVisible(true);
-        
+
     }
 
 }

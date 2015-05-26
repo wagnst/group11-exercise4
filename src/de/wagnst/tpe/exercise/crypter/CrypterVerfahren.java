@@ -2,14 +2,14 @@ package de.wagnst.tpe.exercise.crypter;
 
 /**
  * Copyright by Steffen Wagner (D059727)
- *
+ * <p/>
  * Created on 21.05.2015, 12:13 Project: group11-exercise4
  */
 
 public enum CrypterVerfahren {
-    SUBSTITUTION("Substitution", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26,"exactly 26 letters"), 
-    CAESAR("Caesar", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1,"exactly 1 letter"), 
-    XOR("XOR","@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_","min 1 literal");
+    SUBSTITUTION("Substitution", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26, "exactly 26 letters"),
+    CAESAR("Caesar", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1, "exactly 1 letter"),
+    XOR("XOR", "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_", "min 1 literal");
 
     private final String name;
     private final String alphabet;
@@ -33,12 +33,12 @@ public enum CrypterVerfahren {
     /**
      * Contructor used for Substitution and Caesar encryption
      *
-     * @param alphabet String of allowed chars for usage in encryption
+     * @param alphabet     String of allowed chars for usage in encryption
      * @param minKeyLength minimum length of key that is allowed
      * @param maxKeyLength maximum length of key that is allowed
      */
     private CrypterVerfahren(String name, String alphabet, int minKeyLength,
-            int maxKeyLength, String keyRange) {
+                             int maxKeyLength, String keyRange) {
         this.name = name;
         this.alphabet = alphabet;
         this.minKeyLength = minKeyLength;
@@ -61,8 +61,8 @@ public enum CrypterVerfahren {
     public int getMaxKeyLength() {
         return this.maxKeyLength;
     }
-    
-    public String getKeyRange(){
+
+    public String getKeyRange() {
         return this.keyRange;
     }
 }

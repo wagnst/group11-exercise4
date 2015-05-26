@@ -6,7 +6,7 @@ import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
 
 /**
  * Copyright by Steffen Wagner (D059727)
- *
+ * <p/>
  * Created on 21.05.2015, 12:13 Project: group11-exercise4
  */
 
