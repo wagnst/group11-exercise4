@@ -40,6 +40,8 @@ import java.awt.SystemColor;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JToggleButton;
+import javax.swing.border.LineBorder;
+import javax.swing.UIManager;
 
 public class Enigma extends JFrame {
 
@@ -56,28 +58,28 @@ public class Enigma extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
-        contentPane.setBackground(new Color(153, 153, 153));
+        contentPane.setBackground(new Color(176, 196, 222));
         contentPane.setAlignmentX(Component.RIGHT_ALIGNMENT);
         contentPane.setBorder(null);
         setContentPane(contentPane);
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(new Color(204, 204, 204));
-        buttonPanel.setForeground(new Color(0, 191, 255));
+        buttonPanel.setBackground(new Color(211, 211, 211));
+        buttonPanel.setForeground(Color.WHITE);
         buttonPanel.setAutoscrolls(true);
-        buttonPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
+        buttonPanel.setBorder(new LineBorder(new Color(128, 128, 128)));
 
         JPanel keyPanel = new JPanel();
-        keyPanel.setForeground(new Color(0, 191, 255));
+        keyPanel.setForeground(new Color(255, 255, 255));
         keyPanel.setBackground(new Color(204, 204, 204));
-        keyPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
+        keyPanel.setBorder(new LineBorder(new Color(128, 128, 128)));
 
         keyField = new JTextField("DEFGHIJKLMNOPQRSTUVWXYZABC");
         keyField.setFont(new Font("Arial", Font.PLAIN, 10));
         keyField.setColumns(10);
 
         JLabel keyLabel = new JLabel("Key");
-        keyLabel.setFont(new Font("Arial", Font.BOLD, 11));
+        keyLabel.setFont(new Font("Arial", Font.ITALIC, 11));
         GroupLayout gl_keyPanel = new GroupLayout(keyPanel);
         gl_keyPanel.setHorizontalGroup(
             gl_keyPanel.createParallelGroup(Alignment.LEADING)
@@ -126,11 +128,11 @@ public class Enigma extends JFrame {
         buttonPanel.add(cancelButton);
         
         JPanel messagePanel = new JPanel();
-        messagePanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
+        messagePanel.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(176, 196, 222), new Color(176, 196, 222), new Color(176, 196, 222), new Color(176, 196, 222)));
         messagePanel.setLayout(new BoxLayout(messagePanel, BoxLayout.X_AXIS));
         
         JScrollPane messageScrollPane = new JScrollPane();
-        messageScrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        messageScrollPane.setViewportBorder(new LineBorder(new Color(192, 192, 192), 1, true));
         messageScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         messagePanel.add(messageScrollPane);
         
@@ -142,13 +144,13 @@ public class Enigma extends JFrame {
         
         JLabel lblMessage = new JLabel("Message");
         lblMessage.setBackground(new Color(204, 204, 204));
-        lblMessage.setFont(new Font("Arial", Font.BOLD, 13));
+        lblMessage.setFont(new Font("Arial", Font.ITALIC, 13));
         lblMessage.setHorizontalAlignment(SwingConstants.CENTER);
         lblMessage.setAlignmentX(Component.CENTER_ALIGNMENT);
         messageScrollPane.setColumnHeaderView(lblMessage);
         
         JPanel returnPanel = new JPanel();
-        returnPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.controlDkShadow, SystemColor.controlHighlight, SystemColor.controlShadow, SystemColor.control));
+        returnPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(176, 196, 222), new Color(176, 196, 222), new Color(176, 196, 222), new Color(176, 196, 222)));
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         gl_contentPane.setHorizontalGroup(
             gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -179,7 +181,7 @@ public class Enigma extends JFrame {
         returnPanel.setLayout(new BoxLayout(returnPanel, BoxLayout.X_AXIS));
         
         JScrollPane returnScrollPane = new JScrollPane();
-        returnScrollPane.setViewportBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        returnScrollPane.setViewportBorder(new LineBorder(new Color(192, 192, 192)));
         returnScrollPane.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         returnPanel.add(returnScrollPane);
         
@@ -191,7 +193,7 @@ public class Enigma extends JFrame {
         returnScrollPane.setViewportView(returnArea);
         
         JLabel lblNewLabel = new JLabel("Return");
-        lblNewLabel.setFont(new Font("Arial", Font.BOLD, 13));
+        lblNewLabel.setFont(new Font("Arial", Font.ITALIC, 13));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         returnScrollPane.setColumnHeaderView(lblNewLabel);
         contentPane.setLayout(gl_contentPane);
