@@ -2,17 +2,18 @@ package de.wagnst.tpe.exercise.crypter;
 
 public class MessageCorrectness {
 
+    /* TODO maxLetter in Enum auslagern? */
     public static final int maxLetter = 100000;
 
     /**
      * method to check the length of given message. Set maxLetter to ensure
      * performance. message with length of zero is always false
      *
-     * @param method  method which will be used to encode/decode
+     * @param method method which will be used to encode/decode
      * @param message message to check
      * @return true if the messages length fits the convention of used method
      * @throws IllegalMessageException if message goes against the method
-     *                                 convention
+     *         convention
      */
     public static boolean checkLength(CrypterVerfahren method, String message)
             throws IllegalMessageException {
@@ -32,11 +33,11 @@ public class MessageCorrectness {
      * check message literals and compare it with the alphabet given from the
      * method on use
      *
-     * @param method  to encode/decode
+     * @param method to encode/decode
      * @param message to check
      * @return true if messages format fits the convention of used method
      * @throws IllegalMessageException if at least one literal is not at
-     *                                 alphabet from the method on use
+     *         alphabet from the method on use
      */
     public static boolean checkLiterals(CrypterVerfahren method, String message)
             throws IllegalMessageException {
