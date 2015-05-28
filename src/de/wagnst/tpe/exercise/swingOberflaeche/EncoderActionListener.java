@@ -2,8 +2,6 @@ package de.wagnst.tpe.exercise.swingOberflaeche;
 
 import de.wagnst.tpe.exercise.crypter.*;
 import de.wagnst.tpe.exercise.crypters.CrypterFactory;
-import de.wagnst.tpe.exercise.crypters.CrypterSubstitution;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
