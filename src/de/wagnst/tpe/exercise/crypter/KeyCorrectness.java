@@ -22,7 +22,6 @@ public class KeyCorrectness {
             return;
         } else
 
-            /* TODO message fixen */
             throw new IllegalKeyException("we need " + method.getKeyRange()
                     + " @ " + method.getName());
     }
