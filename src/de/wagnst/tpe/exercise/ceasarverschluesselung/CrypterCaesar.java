@@ -3,19 +3,21 @@ package de.wagnst.tpe.exercise.ceasarverschluesselung;
 
 import de.wagnst.tpe.exercise.crypter.*;
 
-public class CrypterCaesar implements Crypter{
+public class CrypterCaesar implements Crypter {
 
 
     /**
-     * Entschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
+     * Encode the decoded message with the key.
      *
-     * @param key Schlüssel, der verwendet werden soll.
-     * @param cypherText Nachricht, die entschlüsselt werden soll.
-     * @return entschlüsselter Text.
-     * @throws IllegalKeyException Wird geworfen, wenn der Schlüssel nicht zum
-     *         Verschlüsselungsverfahren passt
+     * @param key        key, which should be used.
+     * @param cypherText message, which should be encoded.
+     *
+     * @return encoded message.
+     *
+     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
+     *                                 zum Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *         unerlaubte Zeichen enthält.
+     *                                 unerlaubte Zeichen enthält.
      */
     @Override
     public String entschluesseln(String key, String cypherText)
@@ -23,13 +25,22 @@ public class CrypterCaesar implements Crypter{
 
         KeyCorrectness.checkLength(CrypterVerfahren.CAESAR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.CAESAR, key);
-        KeyCorrectness.checkDuplicates(CrypterVerfahren.CAESAR, key);
+
+        MessageCorrectness.checkLength(CrypterVerfahren.CAESAR,
+                cypherText);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.CAESAR,
+                cypherText);
 
         char keychar = key.charAt(0);
-        int keyint = keychar - 65;
         String transformedMessage = "";
 
-
+        for (int i = 0; i < cypherText.length(); i++) {
+            //wenn Zahl zu klein wird oder Z zu A
+            if ((cypherText.charAt(i) - keychar) <= 0) {
+                transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt((cypherText.charAt(i) - keychar + 26) - 1);
+            } else
+                transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((cypherText.charAt(i) - keychar)) - 1);
+        }
 
 
         return transformedMessage;
@@ -38,13 +49,15 @@ public class CrypterCaesar implements Crypter{
     /**
      * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
      *
-     * @param key Schlüssel, der verwendet werden soll.
+     * @param key     Schlüssel, der verwendet werden soll.
      * @param message Nachricht, die Verschlüsselt werden soll.
+     *
      * @return verschlüsselter Text.
-     * @throws IllegalKeyException Wird geworfen, wenn der Schlüssel nicht zum
-     *         Verschlüsselungsverfahren passt
+     *
+     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
+     *                                 zum Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *         unerlaubte Zeichen enthält.
+     *                                 unerlaubte Zeichen enthält.
      */
 
     @Override
@@ -53,11 +66,23 @@ public class CrypterCaesar implements Crypter{
 
         KeyCorrectness.checkLength(CrypterVerfahren.CAESAR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.CAESAR, key);
-        KeyCorrectness.checkDuplicates(CrypterVerfahren.CAESAR, key);
 
-        message = MessageCorrectness.checkAndFormat(
-                CrypterVerfahren.CAESAR, message);
+        MessageCorrectness.checkLength(CrypterVerfahren.CAESAR, message);
+        MessageCorrectness
+                .checkLiterals(CrypterVerfahren.CAESAR, message);
 
-        return null;
+        char keychar = key.charAt(0);
+        String transformedMessage = "";
+
+        for (int i = 0; i < message.length(); i++) {
+            // wenn A zu Z
+            if ((((message.charAt(i) + keychar) % 26) + 1) >= 26) {
+                transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((message.charAt(i) + keychar) % 26) - 26 + 1);
+
+            } else
+                transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((message.charAt(i) + keychar) % 26) + 1);
+        }
+
+        return transformedMessage;
     }
 }
