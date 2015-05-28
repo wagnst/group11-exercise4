@@ -7,17 +7,17 @@ class CrypterCaesar implements Crypter {
 
 
     /**
-     * Encode the decoded message with the key.
+     * Decode the encoded message with the key.
      *
      * @param key        key, which should be used.
      * @param cypherText message, which should be encoded.
      *
-     * @return encoded message.
+     * @return decoded message.
      *
-     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
-     *                                 zum Verschlüsselungsverfahren passt
-     * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *                                 unerlaubte Zeichen enthält.
+     * @throws IllegalKeyException     will throw, if the key doesn't fit to the
+     *                                 ciphering method.
+     * @throws IllegalMessageException will throw, if the message has forbidden
+     *                                 signs.
      */
     @Override
     public String entschluesseln(String key, String cypherText)
@@ -35,7 +35,7 @@ class CrypterCaesar implements Crypter {
         String transformedMessage = "";
 
         for (int i = 0; i < cypherText.length(); i++) {
-            //wenn Zahl zu klein wird oder Z zu A
+            //if number to small or Z to A
             if ((cypherText.charAt(i) - keychar) <= 0) {
                 transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt((cypherText.charAt(i) - keychar + 26) - 1);
             } else
@@ -47,17 +47,17 @@ class CrypterCaesar implements Crypter {
     }
 
     /**
-     * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
+     * Encode the decoded message with the key.
      *
-     * @param key     Schlüssel, der verwendet werden soll.
-     * @param message Nachricht, die Verschlüsselt werden soll.
+     * @param key     key, which should be used.
+     * @param message message, which should be encoded.
      *
-     * @return verschlüsselter Text.
+     * @return decoded message.
      *
-     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
-     *                                 zum Verschlüsselungsverfahren passt
-     * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *                                 unerlaubte Zeichen enthält.
+     * @throws IllegalKeyException     will throw, if the key doesn't fit to the
+     *                                 ciphering method.
+     * @throws IllegalMessageException will throw, if the message has forbidden
+     *                                 signs.
      */
 
     @Override
@@ -75,7 +75,7 @@ class CrypterCaesar implements Crypter {
         String transformedMessage = "";
 
         for (int i = 0; i < message.length(); i++) {
-            // wenn A zu Z
+            // if A to Z
             if ((((message.charAt(i) + keychar) % 26) + 1) >= 26) {
                 transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((message.charAt(i) + keychar) % 26) - 26 + 1);
 
