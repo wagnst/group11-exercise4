@@ -1,8 +1,6 @@
 package de.wagnst.tpe.exercise.crypters;
 
-import de.wagnst.tpe.exercise.crypter.Crypter;
-import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
-import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
+import de.wagnst.tpe.exercise.crypter.*;
 
 /**
  * Copyright by Steffen Wagner (D059727)
@@ -18,6 +16,16 @@ class CrypterXOR implements Crypter {
     @Override
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
+
+        /* Check key for correctness */
+        KeyCorrectness.checkLength(CrypterVerfahren.XOR, key);
+        KeyCorrectness.checkLiterals(CrypterVerfahren.XOR, key);
+        KeyCorrectness.checkDuplicates(CrypterVerfahren.XOR, key);
+
+        /* Check the message correctness */
+        MessageCorrectness.checkLength(CrypterVerfahren.XOR, message);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, message);
+
         return null;
     }
 
@@ -27,6 +35,16 @@ class CrypterXOR implements Crypter {
     @Override
     public String entschluesseln(String key, String cypherText)
             throws IllegalKeyException, IllegalMessageException {
+
+        /* Check key for correctness */
+        KeyCorrectness.checkLength(CrypterVerfahren.XOR, key);
+        KeyCorrectness.checkLiterals(CrypterVerfahren.XOR, key);
+        KeyCorrectness.checkDuplicates(CrypterVerfahren.XOR, key);
+
+        /* Check the message correctness */
+        MessageCorrectness.checkLength(CrypterVerfahren.XOR, cypherText);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, cypherText);
+
         return null;
     }
 }
