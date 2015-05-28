@@ -24,16 +24,16 @@ class CrypterXOR implements Crypter {
         /* Check key for correctness */
         KeyCorrectness.checkLength(CrypterVerfahren.XOR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.XOR, key);
-        KeyCorrectness.checkDuplicates(CrypterVerfahren.XOR, key);
+        //KeyCorrectness.checkDuplicates(CrypterVerfahren.XOR, key);
 
         /* Check the message correctness */
         MessageCorrectness.checkLength(CrypterVerfahren.XOR, message);
         MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, message);
 
         for (int i = 0; i < message.length(); i++) {
-            xor = message.charAt(i) ^ key.charAt(0);
+            xor = message.charAt(i) ^ key.charAt(i);
             temp = (char) xor;
-            transformedMessage += temp;
+            transformedMessage += CrypterVerfahren.XOR.getAlphabet().charAt(temp);
         }
 
         return transformedMessage;
@@ -53,16 +53,16 @@ class CrypterXOR implements Crypter {
         /* Check key for correctness */
         KeyCorrectness.checkLength(CrypterVerfahren.XOR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.XOR, key);
-        KeyCorrectness.checkDuplicates(CrypterVerfahren.XOR, key);
+        //KeyCorrectness.checkDuplicates(CrypterVerfahren.XOR, key);
 
         /* Check the message correctness */
         MessageCorrectness.checkLength(CrypterVerfahren.XOR, cypherText);
         MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, cypherText);
 
         for (int i = 0; i < cypherText.length(); i++) {
-            xor = cypherText.charAt(i) ^ key.charAt(0);
+            xor = cypherText.charAt(i) ^ key.charAt(i);
             temp = (char) xor;
-            transformedMessage += temp;
+            transformedMessage += CrypterVerfahren.XOR.getAlphabet().charAt(temp);
         }
 
         return transformedMessage;
