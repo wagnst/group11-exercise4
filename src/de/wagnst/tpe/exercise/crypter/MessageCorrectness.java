@@ -2,7 +2,7 @@ package de.wagnst.tpe.exercise.crypter;
 
 public class MessageCorrectness {
 
-    /* TODO maxLetter in Enum auslagern? */
+    
     public static final int maxLetter = 100000;
 
     /**
