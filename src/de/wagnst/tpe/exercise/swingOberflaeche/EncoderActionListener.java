@@ -27,7 +27,6 @@ public class EncoderActionListener implements ActionListener {
 
         if (selectedCrypter.getSelectedItem().equals(
                 CrypterVerfahren.SUBSTITUTION.getName())) {
-            Crypter enigma = new CrypterSubstitution();
             try {
                 Crypter substitution = CrypterFactory.createCrypter(CrypterVerfahren.SUBSTITUTION);
                 encodeField.setText(substitution.verschluesseln(keyField.getText(),
