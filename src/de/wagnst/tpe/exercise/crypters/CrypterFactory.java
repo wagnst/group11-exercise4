@@ -11,10 +11,11 @@ public class CrypterFactory {
     }
 
     /**
-     * The method {@link #createCrypter(de.wagnst.tpe.exercise.crypter.CrypterVerfahren)} can instantiate new
-     * crypther instances depending on the wished method
+     * The method {@link #createCrypter(de.wagnst.tpe.exercise.crypter.CrypterVerfahren)}
+     * can instantiate new crypther instances depending on the wished method
      *
      * @param method type of crypter method which should be used
+     *
      * @return instance of encryption type
      */
     public static Crypter createCrypter(CrypterVerfahren method)

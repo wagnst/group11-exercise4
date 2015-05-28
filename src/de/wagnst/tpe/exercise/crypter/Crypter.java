@@ -2,9 +2,9 @@ package de.wagnst.tpe.exercise.crypter;
 
 /**
  * Grundlegendes Interface, um Verschlüsselung durchzuführen. Mit Hilfe dieses
- * Interfaces kann man Nachrichten verschlüsseln (über die
- * {@link #verschluesseln(String, String)} Methode) und wieder entschlüsseln
- * (über die {@link #entschluesseln(String, String)} Methode).
+ * Interfaces kann man Nachrichten verschlüsseln (über die {@link
+ * #verschluesseln(String, String)} Methode) und wieder entschlüsseln (über die
+ * {@link #entschluesseln(String, String)} Methode).
  * <p/>
  * Der Eingabetext ({@literal message}) darf nur aus den Groß-Buchstaben A-Z
  * bestehen. Alle anderen Zeichen (einschließlich der Leerzeichen) führen zu
@@ -25,9 +25,11 @@ public interface Crypter {
      *
      * @param key     Schlüssel, der verwendet werden soll.
      * @param message Nachricht, die Verschlüsselt werden soll.
+     *
      * @return verschlüsselter Text.
-     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht zum
-     *                                 Verschlüsselungsverfahren passt
+     *
+     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
+     *                                 zum Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
      *                                 unerlaubte Zeichen enthält.
      */
@@ -39,9 +41,11 @@ public interface Crypter {
      *
      * @param key        Schlüssel, der verwendet werden soll.
      * @param cypherText Nachricht, die entschlüsselt werden soll.
+     *
      * @return entschlüsselter Text.
-     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht zum
-     *                                 Verschlüsselungsverfahren passt
+     *
+     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
+     *                                 zum Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
      *                                 unerlaubte Zeichen enthält.
      */

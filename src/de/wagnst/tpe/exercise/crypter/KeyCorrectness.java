@@ -8,6 +8,7 @@ public class KeyCorrectness {
      *
      * @param method to encode/decode
      * @param key    to check
+     *
      * @throws IllegalKeyException if key is zero or out of range min/max
      */
     public static void checkLength(CrypterVerfahren method, String key)
@@ -32,6 +33,7 @@ public class KeyCorrectness {
      *
      * @param method to encode/decode
      * @param key    to check
+     *
      * @throws IllegalKeyException if at least one literal is not at alphabet
      *                             from the method on use
      */
@@ -69,6 +71,7 @@ public class KeyCorrectness {
      *
      * @param method to encode/decode
      * @param key    to check
+     *
      * @throws IllegalKeyException if duplicates detected
      */
 

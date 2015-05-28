@@ -1,7 +1,5 @@
 package de.wagnst.tpe.exercise.swingOberflaeche;
 
-import java.awt.event.WindowListener;
-
 import javax.swing.*;
 
 public class Main {
