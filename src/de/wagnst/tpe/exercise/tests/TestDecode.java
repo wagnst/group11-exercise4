@@ -1,9 +1,12 @@
 package de.wagnst.tpe.exercise.tests;
 
 import de.wagnst.tpe.exercise.crypter.Crypter;
+import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
+import de.wagnst.tpe.exercise.crypter.IllegalCrypterException;
 import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
 import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
 import de.wagnst.tpe.exercise.crypters.CrypterSubstitution;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -13,17 +16,23 @@ public class TestDecode {
 
     private String key = "DEFGHIJKLMNOPQRSTUVWXYZABC";
 
-    Crypter test = new CrypterSubstitution();
-
     /* decode */
     @Test
     public void encode() throws IllegalKeyException, IllegalMessageException {
+
+        try {
+            Crypter test = CrypterFactory
+                    .createCrypter(CrypterVerfahren.SUBSTITUTION);
 
         assertEquals("ABCD", test.entschluesseln(key, "DEFG"));
         assertEquals("YZA", test.entschluesseln(key, "BCD"));
         assertEquals("ZDM", test.entschluesseln(key, "CGP"));
         assertEquals("ABCDEFGHIJKLMNOPQRSTUVWXYZ",
                 test.entschluesseln(key, "DEFGHIJKLMNOPQRSTUVWXYZABC"));
+        } catch (IllegalCrypterException e) {
+
+            System.out.println(e.getMessage());
+        }
     }
 
     /* KEY */
