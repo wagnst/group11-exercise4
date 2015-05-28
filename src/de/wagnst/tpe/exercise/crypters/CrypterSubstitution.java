@@ -20,7 +20,7 @@ class CrypterSubstitution implements Crypter {
     @Override
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
-        /* TODO alles in einem rutsch checken? */
+
         KeyCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
