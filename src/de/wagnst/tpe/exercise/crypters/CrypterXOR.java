@@ -17,6 +17,10 @@ class CrypterXOR implements Crypter {
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
 
+        int xor;
+        char temp;
+        String transformedMessage = "";
+
         /* Check key for correctness */
         KeyCorrectness.checkLength(CrypterVerfahren.XOR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.XOR, key);
@@ -26,7 +30,13 @@ class CrypterXOR implements Crypter {
         MessageCorrectness.checkLength(CrypterVerfahren.XOR, message);
         MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, message);
 
-        return null;
+        for (int i = 0; i < message.length(); i++) {
+            xor = message.charAt(i) ^ key.charAt(0);
+            temp = (char) xor;
+            transformedMessage += temp;
+        }
+
+        return transformedMessage;
     }
 
     /**
@@ -35,6 +45,10 @@ class CrypterXOR implements Crypter {
     @Override
     public String entschluesseln(String key, String cypherText)
             throws IllegalKeyException, IllegalMessageException {
+
+        int xor;
+        char temp;
+        String transformedMessage = "";
 
         /* Check key for correctness */
         KeyCorrectness.checkLength(CrypterVerfahren.XOR, key);
@@ -45,6 +59,12 @@ class CrypterXOR implements Crypter {
         MessageCorrectness.checkLength(CrypterVerfahren.XOR, cypherText);
         MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, cypherText);
 
-        return null;
+        for (int i = 0; i < cypherText.length(); i++) {
+            xor = cypherText.charAt(i) ^ key.charAt(0);
+            temp = (char) xor;
+            transformedMessage += temp;
+        }
+
+        return transformedMessage;
     }
 }
