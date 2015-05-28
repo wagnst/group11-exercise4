@@ -1,8 +1,8 @@
-package de.wagnst.tpe.exercise.crypter;
+package de.wagnst.tpe.exercise.crypters;
 
-import de.wagnst.tpe.exercise.ceasarverschluesselung.CrypterCaesar;
-import de.wagnst.tpe.exercise.subsitutionschiffre.CrypterSubstitution;
-import de.wagnst.tpe.exercise.xorcrypt.CrypterXOR;
+import de.wagnst.tpe.exercise.crypter.Crypter;
+import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
+import de.wagnst.tpe.exercise.crypter.IllegalCrypterException;
 
 public class CrypterFactory {
 
@@ -11,7 +11,7 @@ public class CrypterFactory {
     }
 
     /**
-     * The method {@link #createCrypter(CrypterVerfahren)} can instantiate new
+     * The method {@link #createCrypter(de.wagnst.tpe.exercise.crypter.CrypterVerfahren)} can instantiate new
      * crypther instances depending on the wished method
      *
      * @param method type of crypter method which should be used

@@ -1,11 +1,8 @@
 package de.wagnst.tpe.exercise.swingOberflaeche;
 
-import de.wagnst.tpe.exercise.ceasarverschluesselung.CrypterCaesar;
-import de.wagnst.tpe.exercise.crypter.Crypter;
-import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
-import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
-import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
-import de.wagnst.tpe.exercise.subsitutionschiffre.CrypterSubstitution;
+import de.wagnst.tpe.exercise.crypter.*;
+import de.wagnst.tpe.exercise.crypters.CrypterFactory;
+import de.wagnst.tpe.exercise.crypters.CrypterSubstitution;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -34,20 +31,24 @@ public class EncoderActionListener implements ActionListener {
                 CrypterVerfahren.SUBSTITUTION.getName())) {
             Crypter enigma = new CrypterSubstitution();
             try {
-                encodeField.setText(enigma.verschluesseln(keyField.getText(),
+                Crypter substitution = CrypterFactory.createCrypter(CrypterVerfahren.SUBSTITUTION);
+                encodeField.setText(substitution.verschluesseln(keyField.getText(),
                         messageField.getText()));
             } catch (IllegalKeyException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
             } catch (IllegalMessageException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                e.printStackTrace();
+            } catch (IllegalCrypterException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
             }
         } else if (selectedCrypter.getSelectedItem().equals(
                 CrypterVerfahren.CAESAR.getName())) {
-            Crypter enigma = new CrypterCaesar();
             try {
-                encodeField.setText(enigma.verschluesseln(keyField.getText(),
+                Crypter caesar = CrypterFactory.createCrypter(CrypterVerfahren.CAESAR);
+                encodeField.setText(caesar.verschluesseln(keyField.getText(),
                         messageField.getText()));
             } catch (IllegalKeyException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
@@ -55,10 +56,26 @@ public class EncoderActionListener implements ActionListener {
             } catch (IllegalMessageException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
+            } catch (IllegalCrypterException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                e.printStackTrace();
             }
         } else if (selectedCrypter.getSelectedItem().equals(
                 CrypterVerfahren.XOR.getName())) {
-            JOptionPane.showMessageDialog(null, "XOR");
+            try {
+                Crypter xor = CrypterFactory.createCrypter(CrypterVerfahren.XOR);
+                encodeField.setText(xor.verschluesseln(keyField.getText(),
+                        messageField.getText()));
+            } catch (IllegalKeyException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                e.printStackTrace();
+            } catch (IllegalMessageException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                e.printStackTrace();
+            } catch (IllegalCrypterException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
 }

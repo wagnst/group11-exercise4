@@ -1,9 +1,9 @@
-package de.wagnst.tpe.exercise.ceasarverschluesselung;
+package de.wagnst.tpe.exercise.crypters;
 
 
 import de.wagnst.tpe.exercise.crypter.*;
 
-public class CrypterCaesar implements Crypter {
+class CrypterCaesar implements Crypter {
 
 
     /**
@@ -17,7 +17,7 @@ public class CrypterCaesar implements Crypter {
      * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
      *                                 zum Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *                                 unerlaubte Zeichen enthält.
+     *                                  unerlaubte Zeichen enthält.
      */
     @Override
     public String entschluesseln(String key, String cypherText)

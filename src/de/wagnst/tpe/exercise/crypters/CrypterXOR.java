@@ -1,4 +1,4 @@
-package de.wagnst.tpe.exercise.xorcrypt;
+package de.wagnst.tpe.exercise.crypters;
 
 import de.wagnst.tpe.exercise.crypter.Crypter;
 import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
@@ -10,7 +10,7 @@ import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
  * Created on 21.05.2015, 12:13 Project: group11-exercise4
  */
 
-public class CrypterXOR implements Crypter {
+class CrypterXOR implements Crypter {
 
     /**
      * @see de.wagnst.tpe.exercise.crypter

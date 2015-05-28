@@ -1,31 +1,32 @@
-package de.wagnst.tpe.exercise.subsitutionschiffre;
+package de.wagnst.tpe.exercise.tests;
 
 import de.wagnst.tpe.exercise.crypter.Crypter;
 import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
 import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
+import de.wagnst.tpe.exercise.crypters.CrypterSubstitution;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TestEncode {
+public class TestDecode {
 
     private String key = "DEFGHIJKLMNOPQRSTUVWXYZABC";
 
     Crypter test = new CrypterSubstitution();
 
-    /* encode */
+    /* decode */
     @Test
     public void encode() throws IllegalKeyException, IllegalMessageException {
 
-        assertEquals("DEFG", test.verschluesseln(key, "ABCD"));
-        assertEquals("BCD", test.verschluesseln(key, "YZA"));
-        assertEquals("CGP", test.verschluesseln(key, "ZDM"));
-        assertEquals("DEFGHIJKLMNOPQRSTUVWXYZABC",
-                test.verschluesseln(key, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+        assertEquals("ABCD", test.entschluesseln(key, "DEFG"));
+        assertEquals("YZA", test.entschluesseln(key, "BCD"));
+        assertEquals("ZDM", test.entschluesseln(key, "CGP"));
+        assertEquals("ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                test.entschluesseln(key, "DEFGHIJKLMNOPQRSTUVWXYZABC"));
     }
 
-    /* Key */
+    /* KEY */
 
     /*
      * KeyExceptions too small/large key
@@ -35,28 +36,21 @@ public class TestEncode {
     public void IllegalKeyException1() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("DE", "HALLO");
+        test.entschluesseln("DE", "HALLO");
     }
 
     @Test(expected = IllegalKeyException.class)
     public void IllegalKeyException2() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABCX", "HALLO");
+        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABCX", "HALLO");
     }
 
     @Test(expected = IllegalKeyException.class)
     public void IllegalKeyException5() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZAB", "HALLO");
-    }
-
-    @Test(expected = IllegalKeyException.class)
-    public void IllegalKeyException9() throws IllegalKeyException,
-            IllegalMessageException {
-
-        test.verschluesseln("DEFGHIJKLMNOPQRS TUVWXYZABC", "HALLO");
+        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZAB", "HALLO");
     }
 
     /* illegal literals */
@@ -64,14 +58,14 @@ public class TestEncode {
     public void IllegalKeyException3() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("?", "HALLO");
+        test.entschluesseln("?", "HALLO");
     }
 
     @Test(expected = IllegalKeyException.class)
     public void IllegalKeyException4() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("a", "HALLO");
+        test.entschluesseln("a", "HALLO");
     }
 
     /* duplicates */
@@ -80,7 +74,7 @@ public class TestEncode {
     public void IllegalKeyException6() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("DDEFGHIJKLMNOPQRSTUVWXYZABC", "HALLO");
+        test.entschluesseln("DDEFGHIJKLMNOPQRSTUVWXYZABC", "HALLO");
     }
 
     /* middle */
@@ -88,7 +82,7 @@ public class TestEncode {
     public void IllegalKeyException7() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABD", "HALLO");
+        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABD", "HALLO");
     }
 
     /* end */
@@ -96,36 +90,36 @@ public class TestEncode {
     public void IllegalKeyException8() throws IllegalKeyException,
             IllegalMessageException {
 
-        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZACC", "HALLO");
+        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZACC", "HALLO");
     }
 
-    /* Message */
+    /* MESSAGE */
 
     /* empty message */
     @Test(expected = IllegalMessageException.class)
     public void IllegalMessageException1() throws IllegalKeyException,
             IllegalMessageException {
-        assertEquals("ABC", test.verschluesseln(key, ""));
+        assertEquals("ABC", test.entschluesseln(key, ""));
     }
 
     /* wrong literal */
     @Test(expected = IllegalMessageException.class)
     public void IllegalMessageException2() throws IllegalKeyException,
             IllegalMessageException {
-        assertEquals("ABC", test.verschluesseln(key, "ABC!"));
+        assertEquals("ABC", test.entschluesseln(key, "ABC!"));
     }
 
     @Test(expected = IllegalMessageException.class)
     public void IllegalMessageException3() throws IllegalKeyException,
             IllegalMessageException {
-        assertEquals("ABC", test.verschluesseln(key, "ABC2"));
+        assertEquals("ABC", test.entschluesseln(key, "AB2C"));
     }
 
     @Test
     public void enDecode() throws IllegalKeyException, IllegalMessageException {
         String text = "HALLO";
 
-        assertTrue(text.equals(test.entschluesseln(key,
-                test.verschluesseln(key, text))) == true);
+        assertTrue(text.equals(test.verschluesseln(key,
+                test.entschluesseln(key, text))) == true);
     }
 }

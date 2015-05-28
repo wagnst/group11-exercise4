@@ -1,8 +1,8 @@
-package de.wagnst.tpe.exercise.subsitutionschiffre;
+package de.wagnst.tpe.exercise.crypters;
 
 import de.wagnst.tpe.exercise.crypter.*;
 
-public class CrypterSubstitution implements Crypter {
+class CrypterSubstitution implements Crypter {
 
     /**
      * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
