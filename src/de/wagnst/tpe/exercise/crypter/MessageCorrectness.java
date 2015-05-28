@@ -18,7 +18,7 @@ public class MessageCorrectness {
     public static boolean checkLength(CrypterVerfahren method, String message)
             throws IllegalMessageException {
         if (message.length() == 0) {
-            throw new IllegalMessageException("atleast insert something @"
+            throw new IllegalMessageException("at least insert something @"
                     + method.getName());
 
         } else if (message.length() > maxLetter) {
