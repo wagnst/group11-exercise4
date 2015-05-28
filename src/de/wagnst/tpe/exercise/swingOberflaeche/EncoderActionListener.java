@@ -2,7 +2,6 @@ package de.wagnst.tpe.exercise.swingOberflaeche;
 
 import de.wagnst.tpe.exercise.crypter.*;
 import de.wagnst.tpe.exercise.crypters.CrypterFactory;
-import de.wagnst.tpe.exercise.crypters.CrypterSubstitution;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -29,7 +28,6 @@ public class EncoderActionListener implements ActionListener {
 
         if (selectedCrypter.getSelectedItem().equals(
                 CrypterVerfahren.SUBSTITUTION.getName())) {
-            Crypter enigma = new CrypterSubstitution();
             try {
                 Crypter substitution = CrypterFactory.createCrypter(CrypterVerfahren.SUBSTITUTION);
                 encodeField.setText(substitution.verschluesseln(keyField.getText(),
