@@ -8,6 +8,7 @@ import de.wagnst.tpe.exercise.crypter.*;
  * Created on 21.05.2015, 12:13 Project: group11-exercise4
  */
 
+/* TODO Klassenbeschreibung & allegemeinen JavaDoc für Methoden */
 class CrypterXOR implements Crypter {
 
     /**
