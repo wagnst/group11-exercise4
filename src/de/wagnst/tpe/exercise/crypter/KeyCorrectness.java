@@ -27,7 +27,7 @@ public class KeyCorrectness {
     }
 
     /**
-     * check keys literals and compares it with the alphabet given from the
+     * check keys literals and compare it with the alphabet given from the
      * method on use
      *
      * @param method to encode/decode
