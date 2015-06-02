@@ -42,7 +42,7 @@ class CrypterXOR implements Crypter {
 
         for (int i = 0; i < message.length(); i++) {
             xor = message.charAt(i) ^ key.charAt(i);
-            temp = (char) xor;
+            temp = (char)xor;
             transformedMessage += CrypterVerfahren.XOR.getAlphabet().charAt(temp);
         }
 
@@ -79,7 +79,7 @@ class CrypterXOR implements Crypter {
 
         for (int i = 0; i < cypherText.length(); i++) {
             xor = cypherText.charAt(i) ^ key.charAt(i);
-            temp = (char) xor;
+            temp = (char)xor;
             transformedMessage += CrypterVerfahren.XOR.getAlphabet().charAt(temp);
         }
 
