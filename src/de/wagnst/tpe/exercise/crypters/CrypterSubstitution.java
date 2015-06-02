@@ -7,6 +7,7 @@ import de.wagnst.tpe.exercise.crypter.*;
  * Substitutionsschiffre. Implements Crypter interface.
  *
  * @author Max
+ * @see <a href="https://github.com/tpe-lecture/group11-exercise4#subsitutionschiffre">GitHub description</a>
  */
 class CrypterSubstitution implements Crypter {
 
