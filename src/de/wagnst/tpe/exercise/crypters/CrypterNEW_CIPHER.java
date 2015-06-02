@@ -11,7 +11,7 @@ import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
  * @author wagnst
  * @see <a href="https://github.com/tpe-lecture/group11-exercise4#">GitHub description</a>
  */
-public class CrypterNEW_CIPHER implements Crypter {
+class CrypterNEW_CIPHER implements Crypter {
 
     /**
      * Decode the encoded message with the key.
