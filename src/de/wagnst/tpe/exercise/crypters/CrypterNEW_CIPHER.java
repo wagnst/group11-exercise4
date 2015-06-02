@@ -16,7 +16,7 @@ public class CrypterNEW_CIPHER implements Crypter {
     /**
      * Decode the encoded message with the key.
      *
-     * @param key        key, which should be used.
+     * @param key     key, which should be used.
      * @param message message, which should be encoded.
      * @return decoded message.
      * @throws IllegalKeyException     will throw, if the key doesn't fit to
@@ -32,7 +32,7 @@ public class CrypterNEW_CIPHER implements Crypter {
     /**
      * Encode the decoded message with the key.
      *
-     * @param key     key, which should be used.
+     * @param key        key, which should be used.
      * @param cypherText message, which should be encoded.
      * @return decoded message.
      * @throws IllegalKeyException     will throw, if the key doesn't fit to
