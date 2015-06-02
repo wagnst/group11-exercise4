@@ -1,12 +1,7 @@
 package de.wagnst.tpe.exercise.tests;
 
-import de.wagnst.tpe.exercise.crypter.Crypter;
-import de.wagnst.tpe.exercise.crypter.CrypterVerfahren;
-import de.wagnst.tpe.exercise.crypter.IllegalCrypterException;
-import de.wagnst.tpe.exercise.crypter.IllegalKeyException;
-import de.wagnst.tpe.exercise.crypter.IllegalMessageException;
+import de.wagnst.tpe.exercise.crypter.*;
 import de.wagnst.tpe.exercise.crypters.CrypterFactory;
-
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

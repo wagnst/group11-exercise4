@@ -12,9 +12,7 @@ class CrypterCaesar implements Crypter {
      *
      * @param key        key, which should be used.
      * @param cypherText message, which should be encoded.
-     *
      * @return decoded message.
-     *
      * @throws IllegalKeyException     will throw, if the key doesn't fit to the
      *                                 ciphering method.
      * @throws IllegalMessageException will throw, if the message has forbidden
@@ -52,9 +50,7 @@ class CrypterCaesar implements Crypter {
      *
      * @param key     key, which should be used.
      * @param message message, which should be encoded.
-     *
      * @return decoded message.
-     *
      * @throws IllegalKeyException     will throw, if the key doesn't fit to the
      *                                 ciphering method.
      * @throws IllegalMessageException will throw, if the message has forbidden
