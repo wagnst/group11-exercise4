@@ -71,7 +71,8 @@ public class Enigma extends JFrame {
         JComboBox comboBox = new JComboBox(new String[]{
                 CrypterVerfahren.SUBSTITUTION.getName(),
                 CrypterVerfahren.CAESAR.getName(),
-                CrypterVerfahren.XOR.getName()});
+                CrypterVerfahren.XOR.getName(),
+                CrypterVerfahren.NEW_CIPHER.getName()});
         comboBox.setForeground(new Color(0, 0, 0));
         comboBox.setBackground(SystemColor.window);
 

@@ -68,6 +68,21 @@ public class EncoderActionListener implements ActionListener {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
             }
+        } else if (selectedCrypter.getSelectedItem().equals(CrypterVerfahren.NEW_CIPHER.getName())) {
+            try {
+                Crypter new_cipher = CrypterFactory.createCrypter(CrypterVerfahren.NEW_CIPHER);
+                encodeField.setText(new_cipher.verschluesseln(keyField.getText(),
+                        messageField.getText()));
+            } catch (IllegalKeyException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                e.printStackTrace();
+            } catch (IllegalMessageException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                e.printStackTrace();
+            } catch (IllegalCrypterException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
 }

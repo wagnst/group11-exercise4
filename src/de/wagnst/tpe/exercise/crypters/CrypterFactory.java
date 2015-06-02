@@ -33,6 +33,8 @@ public class CrypterFactory {
                 return new CrypterCaesar();
             case XOR:
                 return new CrypterXOR();
+            case NEW_CIPHER:
+                return new CrypterNEW_CIPHER();
             default:
                 throw new IllegalCrypterException("no valid crypter method used");
         }
