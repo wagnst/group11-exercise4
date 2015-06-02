@@ -42,7 +42,7 @@ public class Enigma extends JFrame {
         keyPanel.setBackground(new Color(204, 204, 204));
         keyPanel.setBorder(new LineBorder(new Color(128, 128, 128)));
 
-        keyField = new JTextField("DEFGHIJKLMNOPQRSTUVWXYZABC");
+        keyField = new JTextField();
         keyField.setFont(new Font("Arial", Font.PLAIN, 10));
         keyField.setColumns(10);
 
