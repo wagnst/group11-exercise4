@@ -23,9 +23,9 @@ public interface Crypter {
     /**
      * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
      *
-     * @param key     Schlüssel, der verwendet werden soll.
-     * @param message Nachricht, die Verschlüsselt werden soll.
-     * @return verschlüsselter Text.
+     * @param key                      Schlüssel, der verwendet werden soll.
+     * @param message                  Nachricht, die Verschlüsselt werden soll.
+     * @return                         verschlüsselter Text.
      * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
      *                                 zum Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
@@ -37,9 +37,9 @@ public interface Crypter {
     /**
      * Entschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
      *
-     * @param key        Schlüssel, der verwendet werden soll.
-     * @param cypherText Nachricht, die entschlüsselt werden soll.
-     * @return entschlüsselter Text.
+     * @param key                      Schlüssel, der verwendet werden soll.
+     * @param cypherText               Nachricht, die entschlüsselt werden soll.
+     * @return                         entschlüsselter Text.
      * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht
      *                                 zum Verschlüsselungsverfahren passt
      * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
