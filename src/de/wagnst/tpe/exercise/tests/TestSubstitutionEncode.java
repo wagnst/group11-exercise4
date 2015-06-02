@@ -7,27 +7,24 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TestDecode {
+public class TestSubstitutionEncode {
 
     private String key = "DEFGHIJKLMNOPQRSTUVWXYZABC";
 
-    /* decode */
+    /* encode */
     @Test
     public void encode() throws IllegalKeyException, IllegalMessageException,
             IllegalCrypterException {
-
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-
-        assertEquals("ABCD", test.entschluesseln(key, "DEFG"));
-        assertEquals("YZA", test.entschluesseln(key, "BCD"));
-        assertEquals("ZDM", test.entschluesseln(key, "CGP"));
-        assertEquals("ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                test.entschluesseln(key, "DEFGHIJKLMNOPQRSTUVWXYZABC"));
-
+        assertEquals("DEFG", test.verschluesseln(key, "ABCD"));
+        assertEquals("BCD", test.verschluesseln(key, "YZA"));
+        assertEquals("CGP", test.verschluesseln(key, "ZDM"));
+        assertEquals("DEFGHIJKLMNOPQRSTUVWXYZABC",
+                test.verschluesseln(key, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
     }
 
-    /* KEY */
+    /* Key */
 
     /*
      * KeyExceptions too small/large key
@@ -38,7 +35,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DE", "HALLO");
+        test.verschluesseln("DE", "HALLO");
     }
 
     @Test(expected = IllegalKeyException.class)
@@ -46,7 +43,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABCX", "HALLO");
+        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABCX", "HALLO");
     }
 
     @Test(expected = IllegalKeyException.class)
@@ -54,7 +51,15 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZAB", "HALLO");
+        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZAB", "HALLO");
+    }
+
+    @Test(expected = IllegalKeyException.class)
+    public void IllegalKeyException9() throws IllegalKeyException,
+            IllegalMessageException, IllegalCrypterException {
+        Crypter test = CrypterFactory
+                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+        test.verschluesseln("DEFGHIJKLMNOPQRS TUVWXYZABC", "HALLO");
     }
 
     /* illegal literals */
@@ -63,7 +68,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("?", "HALLO");
+        test.verschluesseln("?", "HALLO");
     }
 
     @Test(expected = IllegalKeyException.class)
@@ -71,7 +76,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("a", "HALLO");
+        test.verschluesseln("a", "HALLO");
     }
 
     /* duplicates */
@@ -81,7 +86,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DDEFGHIJKLMNOPQRSTUVWXYZABC", "HALLO");
+        test.verschluesseln("DDEFGHIJKLMNOPQRSTUVWXYZABC", "HALLO");
     }
 
     /* middle */
@@ -90,7 +95,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABD", "HALLO");
+        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABD", "HALLO");
     }
 
     /* end */
@@ -99,10 +104,10 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZACC", "HALLO");
+        test.verschluesseln("DEFGHIJKLMNOPQRSTUVWXYZACC", "HALLO");
     }
 
-    /* MESSAGE */
+    /* Message */
 
     /* empty message */
     @Test(expected = IllegalMessageException.class)
@@ -110,7 +115,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        assertEquals("ABC", test.entschluesseln(key, ""));
+        assertEquals("ABC", test.verschluesseln(key, ""));
     }
 
     /* wrong literal */
@@ -119,7 +124,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        assertEquals("ABC", test.entschluesseln(key, "ABC!"));
+        assertEquals("ABC", test.verschluesseln(key, "ABC!"));
     }
 
     @Test(expected = IllegalMessageException.class)
@@ -127,7 +132,7 @@ public class TestDecode {
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        assertEquals("ABC", test.entschluesseln(key, "AB2C"));
+        assertEquals("ABC", test.verschluesseln(key, "ABC2"));
     }
 
     @Test
@@ -136,7 +141,7 @@ public class TestDecode {
         String text = "HALLO";
         Crypter test = CrypterFactory
                 .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        assertTrue(text.equals(test.verschluesseln(key,
-                test.entschluesseln(key, text))) == true);
+        assertTrue(text.equals(test.entschluesseln(key,
+                test.verschluesseln(key, text))) == true);
     }
 }
