@@ -27,8 +27,8 @@ public enum CrypterVerfahren {
         this.name = name;
         this.alphabet = alphabet;
         this.keyRange = keyRange;
-        minKeyLength = 1;
-        maxKeyLength = -1;
+        this.minKeyLength = 1;
+        this.maxKeyLength = -1;
     }
 
     /**
