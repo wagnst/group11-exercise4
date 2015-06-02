@@ -50,7 +50,7 @@ class CrypterXOR implements Crypter {
     }
 
     /**
-     * Entschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
+     * Decrypts text with a given key
      *
      * @param key        key, which should be used
      * @param cypherText message, that should be decrypted
