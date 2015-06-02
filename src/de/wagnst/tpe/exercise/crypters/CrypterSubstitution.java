@@ -28,15 +28,15 @@ class CrypterSubstitution implements Crypter {
     public String verschluesseln(String key, String message)
             throws IllegalKeyException, IllegalMessageException {
 
+        String transformedMessage = "";
+
         KeyCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
         MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, message);
-        MessageCorrectness
-                .checkLiterals(CrypterVerfahren.SUBSTITUTION, message);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, message);
 
-        String transformedMessage = "";
         /* select the letter to encode */
         int pointer = 0;
         for (int i = 0; i < message.length(); i++) {
@@ -73,17 +73,16 @@ class CrypterSubstitution implements Crypter {
     public String entschluesseln(String key, String cypherText)
             throws IllegalKeyException, IllegalMessageException {
 
+        String transformedMessage = "";
+        int pointer = 0;
+
         KeyCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION,
-                cypherText);
-        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION,
-                cypherText);
-        String transformedMessage = "";
+        MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION,cypherText);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION,cypherText);
 
-        int pointer = 0;
         for (int i = 0; i < cypherText.length(); i++) {
             int j = 0;
 

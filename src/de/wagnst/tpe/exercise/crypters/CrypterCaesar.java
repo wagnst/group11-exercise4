@@ -31,10 +31,8 @@ class CrypterCaesar implements Crypter {
         KeyCorrectness.checkLength(CrypterVerfahren.CAESAR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.CAESAR, key);
 
-        MessageCorrectness.checkLength(CrypterVerfahren.CAESAR,
-                cypherText);
-        MessageCorrectness.checkLiterals(CrypterVerfahren.CAESAR,
-                cypherText);
+        MessageCorrectness.checkLength(CrypterVerfahren.CAESAR,cypherText);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.CAESAR,cypherText);
 
         char keychar = key.charAt(0);
         String transformedMessage = "";
@@ -46,7 +44,6 @@ class CrypterCaesar implements Crypter {
             } else
                 transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((cypherText.charAt(i) - keychar)) - 1);
         }
-
 
         return transformedMessage;
     }
@@ -71,8 +68,7 @@ class CrypterCaesar implements Crypter {
         KeyCorrectness.checkLiterals(CrypterVerfahren.CAESAR, key);
 
         MessageCorrectness.checkLength(CrypterVerfahren.CAESAR, message);
-        MessageCorrectness
-                .checkLiterals(CrypterVerfahren.CAESAR, message);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.CAESAR, message);
 
         char keychar = key.charAt(0);
         String transformedMessage = "";
@@ -81,7 +77,6 @@ class CrypterCaesar implements Crypter {
             // if A to Z
             if ((((message.charAt(i) + keychar) % 26) + 1) >= 26) {
                 transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((message.charAt(i) + keychar) % 26) - 26 + 1);
-
             } else
                 transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((message.charAt(i) + keychar) % 26) + 1);
         }
