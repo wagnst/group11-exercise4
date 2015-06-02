@@ -59,7 +59,7 @@ class CrypterXOR implements Crypter {
      * @throws IllegalKeyException      thrown if key does not match crypter
      * @throws IllegalMessageException  thrown if message contains not allowed
      *                                  signs
-     *                                  
+     *
      * @see de.wagnst.tpe.exercise.crypter
      */
 
