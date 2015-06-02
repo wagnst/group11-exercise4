@@ -30,6 +30,7 @@ class CrypterXOR implements Crypter {
 
         int xor;
         char temp;
+        String filledKey = "";
         String transformedMessage = "";
 
         /* Check key for correctness */
@@ -40,8 +41,13 @@ class CrypterXOR implements Crypter {
         MessageCorrectness.checkLength(CrypterVerfahren.XOR, message);
         MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, message);
 
+        /* fill key to size of message */
+        if(key.length() != message.length()) {
+            filledKey = repeat(key, (message.length() / key.length()) );
+        }
+
         for (int i = 0; i < message.length(); i++) {
-            xor = message.charAt(i) ^ key.charAt(i);
+            xor = message.charAt(i) ^ filledKey.charAt(i);
             temp = (char)xor;
             transformedMessage += CrypterVerfahren.XOR.getAlphabet().charAt(temp);
         }
@@ -67,6 +73,7 @@ class CrypterXOR implements Crypter {
 
         int xor;
         char temp;
+        String filledKey = "";
         String transformedMessage = "";
 
         /* Check key for correctness */
@@ -77,12 +84,23 @@ class CrypterXOR implements Crypter {
         MessageCorrectness.checkLength(CrypterVerfahren.XOR, cypherText);
         MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, cypherText);
 
+        /* fill key to size of message */
+        if(key.length() != cypherText.length()) {
+            filledKey = repeat(key, (cypherText.length() / key.length()) );
+        }
+
         for (int i = 0; i < cypherText.length(); i++) {
-            xor = cypherText.charAt(i) ^ key.charAt(i);
+            xor = cypherText.charAt(i) ^ filledKey.charAt(i);
             temp = (char)xor;
             transformedMessage += CrypterVerfahren.XOR.getAlphabet().charAt(temp);
         }
 
         return transformedMessage;
+    }
+
+    private static String repeat(String str, int times){
+        StringBuilder ret = new StringBuilder();
+        for(int i = 0;i < times;i++) ret.append(str);
+        return ret.toString();
     }
 }
