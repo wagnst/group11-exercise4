@@ -80,8 +80,8 @@ class CrypterSubstitution implements Crypter {
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION,cypherText);
-        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION,cypherText);
+        MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, cypherText);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, cypherText);
 
         for (int i = 0; i < cypherText.length(); i++) {
             int j = 0;

@@ -31,8 +31,8 @@ class CrypterCaesar implements Crypter {
         KeyCorrectness.checkLength(CrypterVerfahren.CAESAR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.CAESAR, key);
 
-        MessageCorrectness.checkLength(CrypterVerfahren.CAESAR,cypherText);
-        MessageCorrectness.checkLiterals(CrypterVerfahren.CAESAR,cypherText);
+        MessageCorrectness.checkLength(CrypterVerfahren.CAESAR, cypherText);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.CAESAR, cypherText);
 
         char keychar = key.charAt(0);
         String transformedMessage = "";
