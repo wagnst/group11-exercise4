@@ -25,7 +25,6 @@ class CrypterXOR implements Crypter {
         /* Check key for correctness */
         KeyCorrectness.checkLength(CrypterVerfahren.XOR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.XOR, key);
-        //KeyCorrectness.checkDuplicates(CrypterVerfahren.XOR, key);
 
         /* Check the message correctness */
         MessageCorrectness.checkLength(CrypterVerfahren.XOR, message);
@@ -54,7 +53,6 @@ class CrypterXOR implements Crypter {
         /* Check key for correctness */
         KeyCorrectness.checkLength(CrypterVerfahren.XOR, key);
         KeyCorrectness.checkLiterals(CrypterVerfahren.XOR, key);
-        //KeyCorrectness.checkDuplicates(CrypterVerfahren.XOR, key);
 
         /* Check the message correctness */
         MessageCorrectness.checkLength(CrypterVerfahren.XOR, cypherText);
