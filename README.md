@@ -1,3 +1,8 @@
+See JavaDoc documentation:
+
+[![Alt text](http://www.konakart.com/wp-content/uploads/2014/11/javadoc.png "JavaDoc")](http://wagnst.github.io/TPE/exercise4/)
+
+
 <h1>
 <a id="user-content-pflichtübung-4-bundesnachrichtendienst-100-punkte" class="anchor" href="#pflicht%C3%BCbung-4-bundesnachrichtendienst-100-punkte" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pflichtübung 4: Bundesnachrichtendienst [100 Punkte]</h1>
 
