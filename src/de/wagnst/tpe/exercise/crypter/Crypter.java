@@ -5,17 +5,13 @@ package de.wagnst.tpe.exercise.crypter;
  * Interfaces kann man Nachrichten verschlüsseln (über die {@link
  * #verschluesseln(String, String)} Methode) und wieder entschlüsseln (über die
  * {@link #entschluesseln(String, String)} Methode).
- * <p/>
  * Der Eingabetext ({@literal message}) darf nur aus den Groß-Buchstaben A-Z
  * bestehen. Alle anderen Zeichen (einschließlich der Leerzeichen) führen zu
  * einer entsprechenden Ausnahme.
- * <p/>
  * Bei der Entschlüsselung eines Textes, hängt es vom Verschlüsselungsverfahren
  * ab, welche Zeichen auftreten dürfen.
- * <p/>
  * Zwischen den beiden Methoden muss bei gleichem Schlüssel {@code key}
  * folgendes gelten:
- * <p/>
  * {@code text.equals(entschluesseln(key, verschluesseln(key, text)) == true}.
  */
 public interface Crypter {
