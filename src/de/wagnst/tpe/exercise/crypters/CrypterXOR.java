@@ -43,7 +43,7 @@ class CrypterXOR implements Crypter {
 
         int xor;
         char temp;
-        String filledKey = "";
+        String filledKey = key;
         String transformedMessage = "";
 
         /* Check key for correctness */
@@ -55,7 +55,7 @@ class CrypterXOR implements Crypter {
         MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, message);
 
         /* fill key to size of message */
-        if (key.length() != message.length()) {
+        if (key.length() < message.length()) {
             filledKey = repeat(key, (message.length() / key.length()));
         }
 
@@ -86,7 +86,7 @@ class CrypterXOR implements Crypter {
 
         int xor;
         char temp;
-        String filledKey = "";
+        String filledKey = key;
         String transformedMessage = "";
 
         /* Check key for correctness */
@@ -98,7 +98,7 @@ class CrypterXOR implements Crypter {
         MessageCorrectness.checkLiterals(CrypterVerfahren.XOR, cypherText);
 
         /* fill key to size of message */
-        if (key.length() != cypherText.length()) {
+        if (key.length() < cypherText.length()) {
             filledKey = repeat(key, (cypherText.length() / key.length()));
         }
 
