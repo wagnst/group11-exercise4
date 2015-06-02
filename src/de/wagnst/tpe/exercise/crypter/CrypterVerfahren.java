@@ -4,8 +4,6 @@ package de.wagnst.tpe.exercise.crypter;
  * Enum which contains all possible crypters like xor, caesar and substition.
  * It saves a name, an alphabet, min and max keylengths as well a range text.
  *
- * Created on 21.05.2015, 12:13 Project: group11-exercise4
- *
  * @author wagnst
  */
 

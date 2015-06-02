@@ -15,13 +15,12 @@ class CrypterXOR implements Crypter {
     /**
      * Encrypts text with a given key
      *
-     * @param key                       key, which should be used
-     * @param message                   message, that should be encrypted
-     * @return                          encrypted text
-     * @throws IllegalKeyException      thrown if key does not match crypter
-     * @throws IllegalMessageException  thrown if message contains not allowed
-     *                                  signs
-     *
+     * @param key     key, which should be used
+     * @param message message, that should be encrypted
+     * @return encrypted text
+     * @throws IllegalKeyException     thrown if key does not match crypter
+     * @throws IllegalMessageException thrown if message contains not allowed
+     *                                 signs
      * @see de.wagnst.tpe.exercise.crypter
      */
 
@@ -53,13 +52,12 @@ class CrypterXOR implements Crypter {
     /**
      * Entschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
      *
-     * @param key                       key, which should be used
-     * @param cypherText                message, that should be decrypted
-     * @return                          decrypted text
-     * @throws IllegalKeyException      thrown if key does not match crypter
-     * @throws IllegalMessageException  thrown if message contains not allowed
-     *                                  signs
-     *
+     * @param key        key, which should be used
+     * @param cypherText message, that should be decrypted
+     * @return decrypted text
+     * @throws IllegalKeyException     thrown if key does not match crypter
+     * @throws IllegalMessageException thrown if message contains not allowed
+     *                                 signs
      * @see de.wagnst.tpe.exercise.crypter
      */
 

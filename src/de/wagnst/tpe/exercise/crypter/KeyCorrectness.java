@@ -4,7 +4,7 @@ package de.wagnst.tpe.exercise.crypter;
  * Basic class to check a key for encode, decode methods. It checks the length,
  * literals and duplicates
  *
- * @author Max
+ * @author MaxGross
  */
 
 public class KeyCorrectness {
@@ -27,7 +27,6 @@ public class KeyCorrectness {
                 && key.length() <= method.getMaxKeyLength()) {
             return;
         } else
-
             throw new IllegalKeyException("we need " + method.getKeyRange()
                     + " @ " + method.getName());
     }
@@ -51,17 +50,14 @@ public class KeyCorrectness {
                 if (Character.isDigit(key.charAt(i))) {
                     throw new IllegalKeyException("numbers are not allowed @ "
                             + method.getName());
-
                 } else if (method.getAlphabet().contains(
                         Character.toString(key.charAt(i)).toUpperCase())) {
                     throw new IllegalKeyException("use capital letters @ "
                             + method.getName());
-
                 } else if (Character.isSpaceChar(key.charAt(i))) {
                     throw new IllegalKeyException("spaces are not allowed @ "
                             + method.getName());
                 } else {
-
                     throw new IllegalKeyException(
                             "have a look which special characters are allowed @ "
                                     + method.getName());

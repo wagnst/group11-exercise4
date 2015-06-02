@@ -2,6 +2,8 @@ package de.wagnst.tpe.exercise.crypter;
 
 /**
  * Is thrown if the key does not match the key needed for encode/decode method
+ *
+ * @author wagnst
  */
 public class IllegalKeyException extends Exception {
 

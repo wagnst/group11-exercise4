@@ -1,14 +1,9 @@
 package de.wagnst.tpe.exercise.crypter;
 
-/*
- * TODO durch diese Exception wird das Interface verändert .. denn es wird eine
- * weitere Exception erwartet
- */
-
 /**
- * Copyright by Steffen Wagner (D059727)
- * <p/>
- * Created on 21.05.2015, 13:38 Project: group11-exercise4
+ * Exception which can be thrown if an illegal crypter is used
+ *
+ * @author wagnst
  */
 
 public class IllegalCrypterException extends Exception {
