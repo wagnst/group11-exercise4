@@ -11,7 +11,7 @@ public enum CrypterVerfahren {
     SUBSTITUTION("Substitution", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26, "exactly 26 letters"),
     CAESAR("Caesar", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 1, 1, "exactly 1 letter"),
     XOR("XOR", "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_", "min 1 literal"),
-    NEW_CIPHER("NEW", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26, "exactly 26 letters");
+    NEW_CIPHER("NEW_CIPHER", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26, 26, "exactly 26 letters");
 
     private final String name;
     private final String alphabet;
