@@ -10,6 +10,8 @@ import de.wagnst.tpe.exercise.crypter.*;
  */
 class CrypterSubstitution implements Crypter {
 
+    //TODO englisch!
+
     /**
      * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
      *
@@ -52,6 +54,8 @@ class CrypterSubstitution implements Crypter {
         }
         return transformedMessage;
     }
+
+    //TODO englisch!
 
     /**
      * Entschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
