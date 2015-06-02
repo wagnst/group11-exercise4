@@ -1,6 +1,5 @@
 package de.wagnst.tpe.exercise.crypters;
 
-
 import de.wagnst.tpe.exercise.crypter.*;
 
 /*TODO JavaDoc Klassenbeschreibung*/

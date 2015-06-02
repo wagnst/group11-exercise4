@@ -6,11 +6,11 @@ public class Main {
     public static void main(String[] args) {
 
         /*
-         * // opens window JFrame CryptoFenster = new HauptansichtDoof(); //
-         * window size (w/h) CryptoFenster.setSize(500, 300); // window position
-         * center CryptoFenster.setLocationRelativeTo(null); // set it visible
-         * CryptoFenster.setVisible(true);
-         */
+        JFrame cryptoFenster = new HauptansichtDoof();
+        cryptoFenster.setSize(500, 300); // window position
+        cryptoFenster.setLocationRelativeTo(null); // set it visible
+        cryptoFenster.setVisible(true);
+        */
 
         /* setting for Enigma */
         JFrame cryptoFenster = new Enigma();

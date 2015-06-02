@@ -26,12 +26,10 @@ public class DecoderActionListener implements ActionListener {
 
     public void actionPerformed(ActionEvent event) {
 
-        if (selectedCrypter.getSelectedItem().equals(
-                CrypterVerfahren.SUBSTITUTION.getName())) {
+        if (selectedCrypter.getSelectedItem().equals(CrypterVerfahren.SUBSTITUTION.getName())) {
             try {
                 Crypter substitution = CrypterFactory.createCrypter(CrypterVerfahren.SUBSTITUTION);
-                encodeField.setText(substitution.entschluesseln(keyField.getText(),
-                        messageField.getText()));
+                encodeField.setText(substitution.entschluesseln(keyField.getText(), messageField.getText()));
             } catch (IllegalKeyException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
@@ -42,12 +40,10 @@ public class DecoderActionListener implements ActionListener {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
             }
-        } else if (selectedCrypter.getSelectedItem().equals(
-                CrypterVerfahren.CAESAR.getName())) {
+        } else if (selectedCrypter.getSelectedItem().equals(CrypterVerfahren.CAESAR.getName())) {
             try {
                 Crypter caesar = CrypterFactory.createCrypter(CrypterVerfahren.CAESAR);
-                encodeField.setText(caesar.entschluesseln(keyField.getText(),
-                        messageField.getText()));
+                encodeField.setText(caesar.entschluesseln(keyField.getText(), messageField.getText()));
             } catch (IllegalKeyException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
@@ -58,12 +54,10 @@ public class DecoderActionListener implements ActionListener {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
             }
-        } else if (selectedCrypter.getSelectedItem().equals(
-                CrypterVerfahren.XOR.getName())) {
+        } else if (selectedCrypter.getSelectedItem().equals(CrypterVerfahren.XOR.getName())) {
             try {
                 Crypter xor = CrypterFactory.createCrypter(CrypterVerfahren.XOR);
-                encodeField.setText(xor.verschluesseln(keyField.getText(),
-                        messageField.getText()));
+                encodeField.setText(xor.entschluesseln(keyField.getText(), messageField.getText()));
             } catch (IllegalKeyException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 e.printStackTrace();
