@@ -7,27 +7,32 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TestSubstitutionDecode {
+/**
+ * Copyright by Katharina Spinner (katharinaspinner)
+ * <p/>
+ * Created on 06.06.15, 16:48 Project: Exercise4
+ */
+public class TestCaesarDecode {
 
-    private String key = "DEFGHIJKLMNOPQRSTUVWXYZABC";
+    private String key = "A";
 
     /* decode */
     @Test
-    public void decode() throws IllegalKeyException, IllegalMessageException,
+    public void encode() throws IllegalKeyException, IllegalMessageException,
             IllegalCrypterException {
 
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
 
-        assertEquals("ABCD", test.entschluesseln(key, "DEFG"));
-        assertEquals("YZA", test.entschluesseln(key, "BCD"));
-        assertEquals("ZDM", test.entschluesseln(key, "CGP"));
+        assertEquals("ZABC", test.entschluesseln(key, "ABCD"));
+        assertEquals("YZA", test.entschluesseln(key, "ZAB"));
+        assertEquals("ZDM", test.entschluesseln(key, "AEN"));
         assertEquals("ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                test.entschluesseln(key, "DEFGHIJKLMNOPQRSTUVWXYZABC"));
+                test.entschluesseln(key, "BCDEFGHIJKLMNOPQRSTUVWXYZA"));
 
     }
 
-    /* KEY */
+     /* KEY */
 
     /*
      * KeyExceptions too small/large key
@@ -37,24 +42,16 @@ public class TestSubstitutionDecode {
     public void IllegalKeyException1() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DE", "HALLO");
+                .createCrypter(CrypterVerfahren.CAESAR);
+        test.entschluesseln(" ", "HALLO");
     }
 
     @Test(expected = IllegalKeyException.class)
     public void IllegalKeyException2() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABCX", "HALLO");
-    }
-
-    @Test(expected = IllegalKeyException.class)
-    public void IllegalKeyException5() throws IllegalKeyException,
-            IllegalMessageException, IllegalCrypterException {
-        Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZAB", "HALLO");
+                .createCrypter(CrypterVerfahren.CAESAR);
+        test.entschluesseln("DEFGHIJKLMNOPQXYZABCX", "HALLO");
     }
 
     /* illegal literals */
@@ -62,7 +59,7 @@ public class TestSubstitutionDecode {
     public void IllegalKeyException3() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
         test.entschluesseln("?", "HALLO");
     }
 
@@ -70,37 +67,10 @@ public class TestSubstitutionDecode {
     public void IllegalKeyException4() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
         test.entschluesseln("a", "HALLO");
     }
 
-    /* duplicates */
-    /* begin */
-    @Test(expected = IllegalKeyException.class)
-    public void IllegalKeyException6() throws IllegalKeyException,
-            IllegalMessageException, IllegalCrypterException {
-        Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DDEFGHIJKLMNOPQRSTUVWXYZABC", "HALLO");
-    }
-
-    /* middle */
-    @Test(expected = IllegalKeyException.class)
-    public void IllegalKeyException7() throws IllegalKeyException,
-            IllegalMessageException, IllegalCrypterException {
-        Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZABD", "HALLO");
-    }
-
-    /* end */
-    @Test(expected = IllegalKeyException.class)
-    public void IllegalKeyException8() throws IllegalKeyException,
-            IllegalMessageException, IllegalCrypterException {
-        Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
-        test.entschluesseln("DEFGHIJKLMNOPQRSTUVWXYZACC", "HALLO");
-    }
 
     /* MESSAGE */
 
@@ -109,7 +79,7 @@ public class TestSubstitutionDecode {
     public void IllegalMessageException1() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
         assertEquals("ABC", test.entschluesseln(key, ""));
     }
 
@@ -118,7 +88,7 @@ public class TestSubstitutionDecode {
     public void IllegalMessageException2() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
         assertEquals("ABC", test.entschluesseln(key, "ABC!"));
     }
 
@@ -126,7 +96,7 @@ public class TestSubstitutionDecode {
     public void IllegalMessageException3() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
         assertEquals("ABC", test.entschluesseln(key, "AB2C"));
     }
 
@@ -134,7 +104,7 @@ public class TestSubstitutionDecode {
     public void IllegalMessageException4() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
         assertEquals("ABC", test.verschluesseln(key, "ABC DE"));
     }
 
@@ -142,7 +112,7 @@ public class TestSubstitutionDecode {
     public void IllegalMessageException5() throws IllegalKeyException,
             IllegalMessageException, IllegalCrypterException {
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
         assertEquals("ABC", test.verschluesseln(key, "aBCdE"));
     }
 
@@ -151,7 +121,7 @@ public class TestSubstitutionDecode {
             IllegalCrypterException {
         String text = "HALLO";
         Crypter test = CrypterFactory
-                .createCrypter(CrypterVerfahren.SUBSTITUTION);
+                .createCrypter(CrypterVerfahren.CAESAR);
         assertTrue(text.equals(test.verschluesseln(key,
                 test.entschluesseln(key, text))) == true);
     }
