@@ -252,6 +252,11 @@ public class Enigma extends JFrame {
         contentPane.setLayout(gl_contentPane);
 
         cancelButton.addActionListener(new ActionListener() {
+            /**
+             * shut down the system
+             * 
+             * @param e clicking the button
+             */
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
@@ -262,6 +267,12 @@ public class Enigma extends JFrame {
         decodeButton.addActionListener(new DecoderActionListener(messageArea,
                 keyField, returnArea, comboBox));
         changeButton.addActionListener(new ActionListener() {
+
+            /**
+             * copy message from messagArea to returnArea
+             * 
+             * @param e clicking the button
+             */
             public void actionPerformed(ActionEvent e) {
                 /* no text will not be changed */
                 if (messageArea.getText().equals("")

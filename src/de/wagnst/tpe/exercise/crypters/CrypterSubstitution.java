@@ -3,26 +3,26 @@ package de.wagnst.tpe.exercise.crypters;
 import de.wagnst.tpe.exercise.crypter.*;
 
 /**
- * Class to encode and decode a message with a key. Using method of
- * Substitutionsschiffre. Implements Crypter interface.
+ * Class to encode and decode a message with a key. Using method of substitution
+ * chiffre. Implements Crypter interface.
  *
  * @author Max
- * @see <a href="https://github.com/tpe-lecture/group11-exercise4#subsitutionschiffre">GitHub description</a>
+ * @see <a
+ *      href="https://github.com/tpe-lecture/group11-exercise4#subsitutionschiffre">GitHub
+ *      description</a>
  */
 class CrypterSubstitution implements Crypter {
 
-    //TODO englisch!
-
     /**
-     * Verschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
+     * Encode a message with a given key.
      *
-     * @param key     Schlüssel, der verwendet werden soll.
-     * @param message Nachricht, die Verschlüsselt werden soll.
-     * @return verschlüsselter Text.
-     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht zum
-     *                                 Verschlüsselungsverfahren passt
-     * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *                                 unerlaubte Zeichen enthält.
+     * @param key to encode the message
+     * @param message which will be encoded
+     * @return encode message String
+     * @throws IllegalKeyException will be thrown if the key doesn't fit to the
+     *         ciphering method.
+     * @throws IllegalMessageException will be thrown if the message has
+     *         forbidden signs.
      */
     @Override
     public String verschluesseln(String key, String message)
@@ -35,7 +35,8 @@ class CrypterSubstitution implements Crypter {
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
         MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, message);
-        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, message);
+        MessageCorrectness
+                .checkLiterals(CrypterVerfahren.SUBSTITUTION, message);
 
         /* select the letter to encode */
         int pointer = 0;
@@ -47,8 +48,8 @@ class CrypterSubstitution implements Crypter {
                 j++;
             }
             /*
-             * catch the char at key which is at the same position asfound at
-             * the original alphabet
+             * take that char from alphabet which is at the same position like
+             * our pointer
              */
             transformedMessage += key.charAt(j);
             pointer++;
@@ -56,18 +57,16 @@ class CrypterSubstitution implements Crypter {
         return transformedMessage;
     }
 
-    //TODO englisch!
-
     /**
-     * Entschlüsselt den gegebenen Text mit dem angegebenen Schlüssel.
+     * Encode a decoded message with the key.
      *
-     * @param key        Schlüssel, der verwendet werden soll.
-     * @param cypherText Nachricht, die entschlüsselt werden soll.
-     * @return entschlüsselter Text.
-     * @throws IllegalKeyException     Wird geworfen, wenn der Schlüssel nicht zum
-     *                                 Verschlüsselungsverfahren passt
-     * @throws IllegalMessageException Wird geworfen, wenn die Nachricht
-     *                                 unerlaubte Zeichen enthält.
+     * @param key which should be used
+     * @param message which should be encoded
+     * @return decoded message
+     * @throws IllegalKeyException will be thrown if the key doesn't fit to the
+     *         ciphering method
+     * @throws IllegalMessageException will be thrown if the message has
+     *         forbidden signs
      */
     @Override
     public String entschluesseln(String key, String cypherText)
@@ -80,8 +79,10 @@ class CrypterSubstitution implements Crypter {
         KeyCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, key);
         KeyCorrectness.checkDuplicates(CrypterVerfahren.SUBSTITUTION, key);
 
-        MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION, cypherText);
-        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION, cypherText);
+        MessageCorrectness.checkLength(CrypterVerfahren.SUBSTITUTION,
+                cypherText);
+        MessageCorrectness.checkLiterals(CrypterVerfahren.SUBSTITUTION,
+                cypherText);
 
         for (int i = 0; i < cypherText.length(); i++) {
             int j = 0;
@@ -91,8 +92,8 @@ class CrypterSubstitution implements Crypter {
 
             }
             /*
-             * catch the char on alphabet which is at the same position as found
-             * at key
+             * take that char from alphabet which is at the same position like
+             * our pointer
              */
             transformedMessage += CrypterVerfahren.SUBSTITUTION.getAlphabet()
                     .charAt(j);

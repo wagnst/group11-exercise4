@@ -14,7 +14,7 @@ public class KeyCorrectness {
      * length addicted to the encode/decode method on use
      *
      * @param method to encode/decode
-     * @param key    to check
+     * @param key to check
      * @throws IllegalKeyException if key is zero or out of range min/max
      */
     public static void checkLength(CrypterVerfahren method, String key)
@@ -36,9 +36,9 @@ public class KeyCorrectness {
      * method on use
      *
      * @param method to encode/decode
-     * @param key    to check
+     * @param key to check
      * @throws IllegalKeyException if at least one literal is not at alphabet
-     *                             from the method on use
+     *         from the method on use
      */
     public static void checkLiterals(CrypterVerfahren method, String key)
             throws IllegalKeyException {
@@ -70,11 +70,10 @@ public class KeyCorrectness {
      * checks the key if it contains any duplicates
      *
      * @param method to encode/decode
-     * @param key    to check
+     * @param key to check
      * @throws IllegalKeyException if duplicates detected
      */
 
-    /* TODO find a way without second for loop */
     public static void checkDuplicates(CrypterVerfahren method, String key)
             throws IllegalKeyException {
         for (int i = 0; i < key.length(); i++) {

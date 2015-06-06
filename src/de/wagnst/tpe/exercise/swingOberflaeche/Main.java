@@ -2,6 +2,12 @@ package de.wagnst.tpe.exercise.swingOberflaeche;
 
 import javax.swing.*;
 
+/**
+ * main class to launch the application
+ * 
+ * @author Max
+ *
+ */
 public class Main {
     public static void main(String[] args) {
 
