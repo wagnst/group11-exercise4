@@ -43,9 +43,13 @@ class CrypterCaesar implements Crypter {
         for (int i = 0; i < cypherText.length(); i++) {
             //if number to small or Z to A
             if ((cypherText.charAt(i) - keychar) <= 0) {
-                transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt((cypherText.charAt(i) - keychar + 26) - 1);
+                transformedMessage = transformedMessage +
+                        CrypterVerfahren.CAESAR.getAlphabet()
+                                .charAt((cypherText.charAt(i) - keychar + 26) - 1);
             } else
-                transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((cypherText.charAt(i) - keychar)) - 1);
+                transformedMessage = transformedMessage +
+                        CrypterVerfahren.CAESAR.getAlphabet()
+                                .charAt(((cypherText.charAt(i) - keychar)) - 1);
         }
 
         return transformedMessage;
@@ -81,9 +85,13 @@ class CrypterCaesar implements Crypter {
         for (int i = 0; i < message.length(); i++) {
             // if A to Z
             if ((((message.charAt(i) + keychar) % 26) + 1) >= 26) {
-                transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((message.charAt(i) + keychar) % 26) - 26 + 1);
+                transformedMessage = transformedMessage +
+                        CrypterVerfahren.CAESAR.getAlphabet()
+                                .charAt(((message.charAt(i) + keychar) % 26) - 26 + 1);
             } else
-                transformedMessage = transformedMessage + CrypterVerfahren.CAESAR.getAlphabet().charAt(((message.charAt(i) + keychar) % 26) + 1);
+                transformedMessage = transformedMessage +
+                        CrypterVerfahren.CAESAR.getAlphabet()
+                                .charAt(((message.charAt(i) + keychar) % 26) + 1);
         }
 
         return transformedMessage;
