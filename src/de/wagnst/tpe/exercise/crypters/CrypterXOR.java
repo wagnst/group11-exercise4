@@ -60,7 +60,7 @@ class CrypterXOR implements Crypter {
 
         /* fill key to size of message */
         if (key.length() < message.length()) {
-            filledKey = repeat(key, (message.length() / key.length()));
+            filledKey = repeat(key, (message.length() / key.length() + 1));
         }
 
         for (int i = 0; i < message.length(); i++) {
