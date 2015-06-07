@@ -45,6 +45,11 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
+# artifacts jar build
+./*.properties
+./*.xml
+src/META-INF
+
 # Mac
 .DS_Store
 
