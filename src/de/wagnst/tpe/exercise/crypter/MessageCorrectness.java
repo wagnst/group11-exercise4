@@ -17,7 +17,9 @@ public class MessageCorrectness {
      *
      * @param method  method which will be used to encode/decode
      * @param message message to check
+     *
      * @return true if the messages length fits the convention of used method
+     *
      * @throws IllegalMessageException if message goes against the method
      *                                 convention
      */
@@ -41,7 +43,9 @@ public class MessageCorrectness {
      *
      * @param method  to encode/decode
      * @param message to check
+     *
      * @return true if messages format fits the convention of used method
+     *
      * @throws IllegalMessageException if at least one literal is not at
      *                                 alphabet from the method on use
      */

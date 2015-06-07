@@ -7,22 +7,23 @@ import de.wagnst.tpe.exercise.crypter.*;
  * chiffre. Implements Crypter interface.
  *
  * @author Max
- * @see <a
- *      href="https://github.com/tpe-lecture/group11-exercise4#subsitutionschiffre">GitHub
- *      description</a>
+ * @see <a href="https://github.com/tpe-lecture/group11-exercise4#subsitutionschiffre">GitHub
+ * description</a>
  */
 class CrypterSubstitution implements Crypter {
 
     /**
      * Encode a message with a given key.
      *
-     * @param key to encode the message
+     * @param key     to encode the message
      * @param message which will be encoded
+     *
      * @return encode message String
-     * @throws IllegalKeyException will be thrown if the key doesn't fit to the
-     *         ciphering method.
+     *
+     * @throws IllegalKeyException     will be thrown if the key doesn't fit to
+     *                                 the ciphering method.
      * @throws IllegalMessageException will be thrown if the message has
-     *         forbidden signs.
+     *                                 forbidden signs.
      */
     @Override
     public String verschluesseln(String key, String message)
@@ -60,13 +61,15 @@ class CrypterSubstitution implements Crypter {
     /**
      * Encode a decoded message with the key.
      *
-     * @param key which should be used
-     * @param message which should be encoded
+     * @param key     which should be used
+     * @param cypherText which should be encoded
+     *
      * @return decoded message
-     * @throws IllegalKeyException will be thrown if the key doesn't fit to the
-     *         ciphering method
+     *
+     * @throws IllegalKeyException     will be thrown if the key doesn't fit to
+     *                                 the ciphering method
      * @throws IllegalMessageException will be thrown if the message has
-     *         forbidden signs
+     *                                 forbidden signs
      */
     @Override
     public String entschluesseln(String key, String cypherText)

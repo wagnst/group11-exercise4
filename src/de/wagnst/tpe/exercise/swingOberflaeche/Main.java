@@ -4,9 +4,8 @@ import javax.swing.*;
 
 /**
  * main class to launch the application
- * 
- * @author Max
  *
+ * @author Max
  */
 public class Main {
     public static void main(String[] args) {

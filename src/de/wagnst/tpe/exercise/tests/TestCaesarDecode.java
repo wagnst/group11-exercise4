@@ -7,11 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Copyright by Katharina Spinner (katharinaspinner)
- * <p/>
- * Created on 06.06.15, 16:48 Project: Exercise4
- */
 public class TestCaesarDecode {
 
     private String key = "A";

@@ -78,11 +78,11 @@ public class Enigma extends JFrame {
                                         .addGap(2)));
         keyPanel.setLayout(gl_keyPanel);
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        JComboBox comboBox = new JComboBox(new String[] {
+        JComboBox comboBox = new JComboBox(new String[]{
                 CrypterVerfahren.SUBSTITUTION.getName(),
                 CrypterVerfahren.CAESAR.getName(),
                 CrypterVerfahren.XOR.getName(),
-                CrypterVerfahren.NEW_CIPHER.getName() });
+                CrypterVerfahren.NEW_CIPHER.getName()});
         comboBox.setForeground(new Color(0, 0, 0));
         comboBox.setBackground(SystemColor.window);
 
@@ -254,7 +254,7 @@ public class Enigma extends JFrame {
         cancelButton.addActionListener(new ActionListener() {
             /**
              * shut down the system
-             * 
+             *
              * @param e clicking the button
              */
             public void actionPerformed(ActionEvent e) {
@@ -270,7 +270,7 @@ public class Enigma extends JFrame {
 
             /**
              * copy message from messagArea to returnArea
-             * 
+             *
              * @param e clicking the button
              */
             public void actionPerformed(ActionEvent e) {

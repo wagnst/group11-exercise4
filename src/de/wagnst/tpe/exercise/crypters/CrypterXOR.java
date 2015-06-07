@@ -3,11 +3,12 @@ package de.wagnst.tpe.exercise.crypters;
 import de.wagnst.tpe.exercise.crypter.*;
 
 /**
- * Class to encode and decode a message with a key. Using method of
- * XOR chiffre. Implements Crypter interface.
+ * Class to encode and decode a message with a key. Using method of XOR chiffre.
+ * Implements Crypter interface.
  *
  * @author wagnst
- * @see <a href="https://github.com/tpe-lecture/group11-exercise4#xor-verschl%C3%BCsselung">GitHub description</a>
+ * @see <a href="https://github.com/tpe-lecture/group11-exercise4#xor-verschl%C3%BCsselung">GitHub
+ * description</a>
  */
 
 class CrypterXOR implements Crypter {
@@ -17,6 +18,7 @@ class CrypterXOR implements Crypter {
      *
      * @param str   input string that should be repeated
      * @param times how many times to repeat
+     *
      * @return repeated string
      */
     private static String repeat(String str, int times) {
@@ -30,7 +32,9 @@ class CrypterXOR implements Crypter {
      *
      * @param key     key, which should be used
      * @param message message, that should be encrypted
+     *
      * @return encrypted text
+     *
      * @throws IllegalKeyException     thrown if key does not match crypter
      * @throws IllegalMessageException thrown if message contains not allowed
      *                                 signs
@@ -73,7 +77,9 @@ class CrypterXOR implements Crypter {
      *
      * @param key        key, which should be used
      * @param cypherText message, that should be decrypted
+     *
      * @return decrypted text
+     *
      * @throws IllegalKeyException     thrown if key does not match crypter
      * @throws IllegalMessageException thrown if message contains not allowed
      *                                 signs
