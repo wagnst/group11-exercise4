@@ -105,7 +105,7 @@ class CrypterXOR implements Crypter {
 
         /* fill key to size of message */
         if (key.length() < cypherText.length()) {
-            filledKey = repeat(key, (cypherText.length() / key.length()));
+            filledKey = repeat(key, ((cypherText.length() / key.length()) +1 ));
         }
 
         for (int i = 0; i < cypherText.length(); i++) {
